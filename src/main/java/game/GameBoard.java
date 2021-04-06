@@ -13,6 +13,8 @@ public class GameBoard extends Grid<Player>{
 	public void set(Location loc, Player elem) {
 		if(canPlace(loc))
 			super.set(loc, elem);
+		else
+			System.err.println("Can not place at "+loc+".");
 	}
 
 	private boolean canPlace(Location loc) {
@@ -33,10 +35,24 @@ public class GameBoard extends Grid<Player>{
 				else {
 					s += p.getSymbol();
 				}
+				if(col < numColumns()-1) {
+					s+='|';
+				}
+			}
+			//print newline
+			s+= "\n";
+
+			//print horizontal separator
+			if(row <numRows()-1) {
+				for(int col=0; col<numColumns(); col++) {
+					s+= '-';
+					if(col<numColumns()-1) {
+						s+= '+';
+					}
+				}
+				s+= "\n";
 			}
 			
-			//print newline
-			s+= "/n";
 		}
 		
 		return s;
