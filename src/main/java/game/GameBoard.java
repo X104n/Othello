@@ -1,6 +1,7 @@
 package game;
 
 import inf101.grid.Grid;
+import inf101.grid.GridDirection;
 import inf101.grid.Location;
 
 public class GameBoard extends Grid<Player>{
@@ -17,7 +18,7 @@ public class GameBoard extends Grid<Player>{
 			System.err.println("Can not place at "+loc+".");
 	}
 
-	private boolean canPlace(Location loc) {
+	public boolean canPlace(Location loc) {
 		return get(loc)==null;
 	}
 	
@@ -56,5 +57,34 @@ public class GameBoard extends Grid<Player>{
 		}
 		
 		return s;
+	}
+	
+	/**
+	 * Count the maximum number of pieces in a row that the given player has.
+	 * @param p
+	 * @return
+	 */
+	public int countNumInRow(Player p) {
+		
+		int max = 0;
+		for(Location loc : locations()) {
+			for(GridDirection dir : GridDirection.EIGHT_DIRECTIONS) {
+				max = Math.max(max, countNumInRow(p,loc,dir));
+			}
+		}
+		
+		return max;
+		
+	}
+
+	private int countNumInRow(Player p, Location start, GridDirection dir) {
+		int count =0;
+		
+		while(isOnGrid(start) && get(start)==p) {
+			count++;
+			start = start.getNeighbor(dir);
+		}
+		
+		return count;
 	}
 }

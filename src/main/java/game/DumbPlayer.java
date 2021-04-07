@@ -1,5 +1,7 @@
 package game;
 
+import inf101.grid.Location;
+
 public class DumbPlayer implements Player {
 
 	char symbol;
@@ -11,6 +13,11 @@ public class DumbPlayer implements Player {
 	@Override
 	public char getSymbol() {
 		return symbol;
+	}
+
+	@Override
+	public Location getMove() {
+		return new Location(0,0);
 	}
 
 }
