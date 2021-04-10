@@ -9,7 +9,7 @@ public abstract class Game {
 	protected Graphics graphics;
 	protected PlayerList players;
 	
-	Game(GameBoard board, Graphics graphics){
+	public Game(GameBoard board, Graphics graphics){
 		this.board = board;
 		this.graphics = graphics;
 		players = new PlayerList();
@@ -44,12 +44,14 @@ public abstract class Game {
 		
 	}
 
-	void addPlayer(char symbol) {
-		players.add(new DumbPlayer(symbol));
+	void addPlayer(Player player) {
+		players.add(player);
 	}
 
-	protected abstract boolean isWinner(Player p);
+	public abstract boolean canPlace(Location loc, Player p);
+	
+	public abstract boolean isWinner(Player p);
 
-	abstract boolean gameOver();
+	public abstract boolean gameOver();
 
 }

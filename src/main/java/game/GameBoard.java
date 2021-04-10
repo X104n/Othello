@@ -6,7 +6,7 @@ import inf101.grid.Location;
 
 public class GameBoard extends Grid<Player>{
 
-	GameBoard(int rows, int cols){
+	public GameBoard(int rows, int cols){
 		super(rows,cols);
 	}
 	

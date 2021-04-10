@@ -1,20 +1,22 @@
 package game;
 
+import inf101.grid.Location;
+
 public class TicTacToe extends Game{
 
-	TicTacToe(Graphics graphics) {
+	public TicTacToe(Graphics graphics, Player player1, Player player2) {
 		super(new GameBoard(3,3), graphics);
-		addPlayer('X');
-		addPlayer('O');
+		addPlayer(player1);
+		addPlayer(player2);
 	}
 
 	@Override
-	protected boolean isWinner(Player p) {
+	public boolean isWinner(Player p) {
 		return board.countNumInRow(p)>=3;
 	}
 
 	@Override
-	boolean gameOver() {
+	public boolean gameOver() {
 		for(Player p : players) {
 			if(isWinner(p)) {
 				return true;
@@ -29,7 +31,14 @@ public class TicTacToe extends Game{
 	}
 
 	public static void main(String[] args) {
-		Game game = new TicTacToe(new TerminalGraphics());
+		Player player1 = new DumbPlayer('X');
+		Player player2 = new DumbPlayer('O');
+		Game game = new TicTacToe(new TerminalGraphics(), player1, player2 );
 		game.run();
+	}
+
+	@Override
+	public boolean canPlace(Location loc, Player p) {
+		return board.canPlace(loc);
 	}
 }
