@@ -14,7 +14,7 @@ public class DumbPlayer extends AbstractPlayer {
 	public Location getMove(Game game) {
 		GameBoard board = game.getGameBoard();
 		for(Location loc : board.locations()) {
-			if(board.canPlace(loc))
+			if(game.canPlace(loc,this))
 				return loc;
 		}
 		return null;

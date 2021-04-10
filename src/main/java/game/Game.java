@@ -16,17 +16,13 @@ public abstract class Game {
 	}
 
 	public void run() {
-		
-		graphics.display(board);
 
 		//game loop
 		while(!gameOver()) {
 			Player current = players.getNextPlayer();
-			graphics.display(board);
 			Location loc = current.getMove(this);
-			if(board.canPlace(loc)) {
+			if(canPlace(loc,current)) {
 				board.set(loc,current);
-				graphics.display(board);
 			}
 			else {
 				System.err.println("Invalid move by player "+current+" lost turn.");
@@ -57,5 +53,9 @@ public abstract class Game {
 	public abstract boolean isWinner(Player p);
 
 	public abstract boolean gameOver();
+
+	public void displayBoard() {
+		graphics.display(board);
+	}
 
 }

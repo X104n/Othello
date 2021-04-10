@@ -20,7 +20,12 @@ public class GameBoard extends Grid<Player>{
 	}
 
 	public boolean canPlace(Location loc) {
-		return get(loc)==null;
+
+		try {
+			return get(loc)==null;
+		} catch (Exception e) {
+			return false;
+		}
 	}
 	
 	@Override

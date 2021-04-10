@@ -55,14 +55,17 @@ public class ConsolePlayer extends AbstractPlayer {
 	 */
 	@Override
 	public Location getMove(Game game) {
-		return getLocation(game.getGameBoard());
+		game.displayBoard();
+		if(game instanceof ConnectFour)
+			return getLocationConnectFour((ConnectFour) game);
 
+		return getLocation(game.getGameBoard());			
 	}
 	
 	/**
 	 * Reads input for the FourInARow game
 	 */
-	private Location getLocation(ConnectFour game) {
+	private Location getLocationConnectFour(ConnectFour game) {
 		System.out.println("Player "+this.toString()+" type [Col] to make a move.");
 		boolean done = false;
 		int col = 0;
