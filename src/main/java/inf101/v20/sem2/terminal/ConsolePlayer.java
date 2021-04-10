@@ -5,6 +5,7 @@ import static inf101.v20.sem2.terminal.TerminalInput.*;
 import java.util.Scanner;
 
 import game.AbstractPlayer;
+import game.Game;
 import game.GameBoard;
 import inf101.grid.Location;
 
@@ -53,8 +54,8 @@ public class ConsolePlayer extends AbstractPlayer {
 	 * Reads in a move from terminal
 	 */
 	@Override
-	public Location getMove(GameBoard game) {
-		return null;
+	public Location getMove(Game game) {
+		return getLocation(game.getGameBoard());
 
 	}
 	

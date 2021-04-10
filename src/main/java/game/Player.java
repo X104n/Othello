@@ -32,6 +32,6 @@ public interface Player {
 	 * @param game - The grid based game in which the move is to be made.
 	 * @return a Location describing the
 	 */
-	Location getMove(GameBoard board);
+	Location getMove(Game board);
 
 }

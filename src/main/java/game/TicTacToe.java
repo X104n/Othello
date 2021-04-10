@@ -1,6 +1,7 @@
 package game;
 
 import inf101.grid.Location;
+import inf101.v20.sem2.terminal.ConsolePlayer;
 
 public class TicTacToe extends Game{
 
@@ -31,7 +32,7 @@ public class TicTacToe extends Game{
 	}
 
 	public static void main(String[] args) {
-		Player player1 = new DumbPlayer('X');
+		Player player1 = new ConsolePlayer('X');
 		Player player2 = new DumbPlayer('O');
 		Game game = new TicTacToe(new TerminalGraphics(), player1, player2 );
 		game.run();

@@ -23,7 +23,7 @@ public abstract class Game {
 		while(!gameOver()) {
 			Player current = players.getNextPlayer();
 			graphics.display(board);
-			Location loc = current.getMove(board);
+			Location loc = current.getMove(this);
 			if(board.canPlace(loc)) {
 				board.set(loc,current);
 				graphics.display(board);
@@ -48,6 +48,10 @@ public abstract class Game {
 		players.add(player);
 	}
 
+	public GameBoard getGameBoard() {
+		return board;
+	}
+	
 	public abstract boolean canPlace(Location loc, Player p);
 	
 	public abstract boolean isWinner(Player p);
