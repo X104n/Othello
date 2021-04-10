@@ -2,22 +2,21 @@ package game;
 
 import inf101.grid.Location;
 
-public class DumbPlayer implements Player {
+public class DumbPlayer extends AbstractPlayer {
 
-	char symbol;
+	static int counter=1;
 	
 	public DumbPlayer(char symbol) {
-		this.symbol = symbol;
+		super(symbol, "DumbPlayer "+counter++);
 	}
 	
 	@Override
-	public char getSymbol() {
-		return symbol;
-	}
-
-	@Override
-	public Location getMove() {
-		return new Location(0,0);
+	public Location getMove(GameBoard board) {
+		for(Location loc : board.locations()) {
+			if(board.canPlace(loc))
+				return loc;
+		}
+		return null;
 	}
 
 }

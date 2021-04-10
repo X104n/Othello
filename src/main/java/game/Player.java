@@ -6,6 +6,6 @@ public interface Player {
 
 	char getSymbol();
 
-	Location getMove();
+	Location getMove(GameBoard board);
 
 }

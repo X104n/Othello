@@ -87,4 +87,12 @@ public class GameBoard extends Grid<Player>{
 		
 		return count;
 	}
+
+	public boolean isFull() {
+		for(Location loc : locations()) {
+			if(get(loc)==null)
+				return false;
+		}
+		return true;
+	}
 }
