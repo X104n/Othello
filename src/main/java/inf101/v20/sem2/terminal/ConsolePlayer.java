@@ -5,6 +5,7 @@ import static inf101.v20.sem2.terminal.TerminalInput.*;
 import java.util.Scanner;
 
 import game.AbstractPlayer;
+import game.ConnectFour;
 import game.Game;
 import game.GameBoard;
 import inf101.grid.Location;

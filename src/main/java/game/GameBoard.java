@@ -2,8 +2,8 @@ package game;
 
 import inf101.grid.Grid;
 import inf101.grid.GridDirection;
+import inf101.grid.IGrid;
 import inf101.grid.Location;
-import inf101.v20.sem2.terminal.ConnectFour;
 
 public class GameBoard extends Grid<Player>{
 
@@ -100,5 +100,12 @@ public class GameBoard extends Grid<Player>{
 				return false;
 		}
 		return true;
+	}
+	
+	
+	public GameBoard copy() { 
+		GameBoard board = new GameBoard(this.numRows(), this.numColumns());
+		fillCopy(board);
+		return board;
 	}
 }

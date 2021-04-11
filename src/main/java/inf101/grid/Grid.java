@@ -113,12 +113,15 @@ public class Grid<T> implements IGrid<T> {
 	@Override
 	public IGrid<T> copy() {
 		Grid<T> newGrid = new Grid<>(numRows(), numColumns());
-
-		for(Location loc : locations())
-			newGrid.set(loc,this.get(loc));
+		fillCopy(newGrid);
 		return newGrid;
 	}
 
+	public void fillCopy(Grid<T> newGrid) {
+		for(Location loc : locations())
+			newGrid.set(loc,this.get(loc));
+	}
+	
 	@Override
 	public void fill(Function<Location, T> initialiser) {
 		if (initialiser == null)

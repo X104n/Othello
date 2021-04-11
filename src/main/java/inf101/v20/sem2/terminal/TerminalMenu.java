@@ -3,6 +3,7 @@ package inf101.v20.sem2.terminal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
+import game.ConnectFour;
 import game.DumbPlayer;
 import game.Game;
 import game.Player;

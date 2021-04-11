@@ -1,15 +1,8 @@
-package inf101.v20.sem2.terminal;
+package game;
 
-import game.DumbPlayer;
-import game.Game;
-import game.GameBoard;
-import game.Graphics;
-import game.Player;
-import game.TerminalGraphics;
-import game.TicTacToe;
-import game.UseGameBoard;
 import inf101.grid.GridDirection;
 import inf101.grid.Location;
+import inf101.v20.sem2.terminal.ConsolePlayer;
 
 public class ConnectFour extends Game {
 
@@ -18,11 +11,15 @@ public class ConnectFour extends Game {
 	}
 
 	public ConnectFour(Graphics graphics, Player p1, Player p2) {
-		this(new GameBoard(6,7), graphics);
+		this(graphics);
 		players.add(p1);
 		players.add(p2);
 	}
 
+
+	public ConnectFour(Graphics graphics) {
+		this(new GameBoard(6,7), graphics);
+	}
 
 	@Override
 	public boolean isWinner(Player p) {
@@ -55,15 +52,27 @@ public class ConnectFour extends Game {
 
 	@Override
 	public boolean canPlace(Location loc, Player p) {
-		return canPlace(loc);
+		return canPlace(board,loc,p);
 	}
 	public boolean canPlace(Location loc) {
+		return canPlace(board,loc,getCurrentPlayer());
+	}
+	@Override
+	public boolean canPlace(GameBoard board, Location loc, Player p) {
 		return board.canPlace(loc) && !board.canPlace(loc.getNeighbor(GridDirection.SOUTH));
+	}
+
+
+	@Override
+	protected Game copy() {
+		ConnectFour game = new ConnectFour(graphics);
+		copyTo(game);
+		return game;
 	}
 
 	public static void main(String[] args) {
 		Player player1 = new ConsolePlayer('X');
-		Player player2 = new DumbPlayer('O');
+		Player player2 = new MiniMaxPlayer('O',4);
 		Game game = new ConnectFour(new TerminalGraphics(), player1, player2);
 		game.run();
 	}
