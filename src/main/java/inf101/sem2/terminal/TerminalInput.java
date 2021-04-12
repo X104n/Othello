@@ -1,9 +1,9 @@
-package inf101.v20.sem2.terminal;
+package inf101.sem2.terminal;
 
 import java.util.Scanner;
 import java.util.function.Function;
 
-import game.AbstractPlayer;
+import inf101.sem2.game.AbstractPlayer;
 
 /**
  * A class containing helper methods for reading input from a Scanner

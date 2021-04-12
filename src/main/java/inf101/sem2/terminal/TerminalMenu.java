@@ -1,14 +1,13 @@
-package inf101.v20.sem2.terminal;
+package inf101.sem2.terminal;
 
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import game.ConnectFour;
-import game.DumbPlayer;
-import game.Game;
-import game.Player;
-import game.TerminalGraphics;
-import game.TicTacToe;
+import inf101.sem2.game.ConnectFour;
+import inf101.sem2.game.DumbPlayer;
+import inf101.sem2.game.Game;
+import inf101.sem2.game.Player;
+import inf101.sem2.game.TicTacToe;
 
 public class TerminalMenu {
 

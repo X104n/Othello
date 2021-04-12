@@ -1,4 +1,7 @@
-package game;
+package inf101.sem2.terminal;
+
+import inf101.sem2.game.GameBoard;
+import inf101.sem2.game.Graphics;
 
 public class TerminalGraphics implements Graphics {
 

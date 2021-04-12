@@ -1,4 +1,4 @@
-package game;
+package inf101.sem2.game;
 
 import java.util.Collections;
 import java.util.List;

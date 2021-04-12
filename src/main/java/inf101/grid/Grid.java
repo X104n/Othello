@@ -160,4 +160,17 @@ public class Grid<T> implements IGrid<T> {
 	public boolean canGo(Location from, GridDirection dir) {
 		return isOnGrid(from.getNeighbor(dir));
 	}
+
+	public boolean contains(Object source) {
+		return cells.contains(source);
+	}
+
+	public Location locationOf(Object source) {
+		for(Location loc : locations()){
+			if(get(loc).equals(source))
+				return loc;
+		}
+		
+		throw new IllegalArgumentException("Can not find element.");
+	}
 }

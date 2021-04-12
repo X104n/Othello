@@ -1,4 +1,4 @@
-package game;
+package inf101.sem2.game;
 
 import inf101.grid.Grid;
 import inf101.grid.GridDirection;

@@ -1,14 +1,14 @@
-package inf101.v20.sem2.terminal;
+package inf101.sem2.terminal;
 
-import static inf101.v20.sem2.terminal.TerminalInput.*;
+import static inf101.sem2.terminal.TerminalInput.*;
 
 import java.util.Scanner;
 
-import game.AbstractPlayer;
-import game.ConnectFour;
-import game.Game;
-import game.GameBoard;
 import inf101.grid.Location;
+import inf101.sem2.game.AbstractPlayer;
+import inf101.sem2.game.ConnectFour;
+import inf101.sem2.game.Game;
+import inf101.sem2.game.GameBoard;
 
 /**
  * This Player enables the user to play the game by using the keyboard.

@@ -1,13 +1,19 @@
-package game;
+package inf101.sem2.game;
 
 import inf101.grid.GridDirection;
 import inf101.grid.Location;
-import inf101.v20.sem2.terminal.ConsolePlayer;
+import inf101.sem2.GUI.GameGUI;
+import inf101.sem2.terminal.ConsolePlayer;
+import inf101.sem2.terminal.TerminalGraphics;
 
 public class ConnectFour extends Game {
 
 	ConnectFour(GameBoard board, Graphics graphics) {
 		super(board, graphics);
+	}
+
+	ConnectFour(GameBoard board, Graphics graphics,Iterable<Player> players) {
+		super(board, graphics,players);
 	}
 
 	public ConnectFour(Graphics graphics, Player p1, Player p2) {
@@ -16,9 +22,12 @@ public class ConnectFour extends Game {
 		players.add(p2);
 	}
 
-
 	public ConnectFour(Graphics graphics) {
 		this(new GameBoard(6,7), graphics);
+	}
+
+	public ConnectFour(Graphics graphics, Iterable<Player> players) {
+		super(new GameBoard(6,7), graphics, players);
 	}
 
 	@Override

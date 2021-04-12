@@ -1,8 +1,12 @@
-package game;
+package inf101.sem2.game;
 
 import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
+
+import inf101.sem2.game.AbstractPlayer;
+import inf101.sem2.game.DumbPlayer;
+import inf101.sem2.game.Player;
 
 class PlayerTest {
 

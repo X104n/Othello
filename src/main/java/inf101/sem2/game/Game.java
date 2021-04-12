@@ -1,4 +1,4 @@
-package game;
+package inf101.sem2.game;
 
 import java.util.ArrayList;
 import java.util.List;
@@ -57,6 +57,7 @@ public abstract class Game {
 		
 		//print results when game is over
 		graphics.displayMessage("Game is over!");
+		graphics.display(board);
 		
 		for(Player p : players) {
 			if(isWinner(p)) {
@@ -167,5 +168,9 @@ public abstract class Game {
 			}
 		}
 		return moves;
+	}
+
+	public Graphics getGraphics() {
+		return graphics;
 	}
 }

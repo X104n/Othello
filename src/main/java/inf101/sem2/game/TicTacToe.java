@@ -1,11 +1,13 @@
-package game;
+package inf101.sem2.game;
 
 import inf101.grid.Location;
-import inf101.v20.sem2.terminal.ConsolePlayer;
+import inf101.sem2.GUI.GameGUI;
+import inf101.sem2.terminal.ConsolePlayer;
+import inf101.sem2.terminal.TerminalGraphics;
 
 public class TicTacToe extends Game{
 
-	private TicTacToe(Graphics graphics) {
+	public TicTacToe(Graphics graphics) {
 		super(new GameBoard(3,3), graphics);
 	}
 
@@ -15,6 +17,10 @@ public class TicTacToe extends Game{
 		addPlayer(player2);
 	}
 
+
+	public TicTacToe(Graphics graphics, Iterable<Player> players) {
+		super(new GameBoard(3,3), graphics,players);
+	}
 
 	@Override
 	public boolean gameOver() {

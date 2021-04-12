@@ -1,4 +1,4 @@
-package game;
+package inf101.sem2.game;
 
 import static org.junit.jupiter.api.Assertions.*;
 
@@ -6,6 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import inf101.grid.Location;
+import inf101.sem2.game.DumbPlayer;
+import inf101.sem2.game.GameBoard;
+import inf101.sem2.game.Player;
 
 class GameBoardTest {
 
