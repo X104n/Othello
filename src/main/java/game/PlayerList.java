@@ -84,6 +84,12 @@ public class PlayerList implements Iterable<Player> {
 		updateIndex();
 		return p;
 	}
+	public Player remove(Player p) {
+		int index = players.indexOf(p);
+		if(index<0)
+			throw new IllegalArgumentException("Can not remove Player which is not in the list.");
+		return remove(index);
+	}
 	
 	public PlayerList copy(){
 		PlayerList list = new PlayerList(this);

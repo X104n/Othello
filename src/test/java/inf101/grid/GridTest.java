@@ -8,9 +8,12 @@ import inf101.util.generators.StringGenerator;
 
 import org.junit.jupiter.api.Test;
 
+import java.util.ArrayList;
 import java.util.function.Function;
 
 import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
 public class GridTest {
@@ -19,6 +22,18 @@ public class GridTest {
     private IGenerator<String> strGen = new StringGenerator();
     private IGenerator<IGrid<String>> gridGen = new GridGenerator<String>(strGen);
 
+    @Test
+    public void canConstruct() {
+    	Grid<Integer> grid = new Grid<Integer>(3, 4);
+    	for(Location loc : grid.locations()) {
+    		assertEquals(null, grid.get(loc));
+    	}
+    	Grid<String> grid2 = new Grid<String>(3, 4,"Value");
+    	for(Location loc : grid2.locations()) {
+    		assertEquals("Value", grid2.get(loc));
+    	}
+    }
+ 
     public <T> void fillProperty1(IGrid<T> grid, T val) {
         grid.fill(val);
         for (Location l : grid.locations()) {
@@ -33,6 +48,7 @@ public class GridTest {
         }
     }
 
+   
     @Test
     public void fillTest1() {
     	assertTrue(GetStarted.hasRead);
@@ -112,8 +128,38 @@ public class GridTest {
     @Test
     public void uniqueLocations() {
     	assertTrue(GetStarted.hasRead);
-        for (int i = 0; i < N / 10; i++) {
+        for (int j = 0; j < 10; j++) {
+            IGrid<String> grid = gridGen.generate();
+            ArrayList<Location> found = new ArrayList<Location>();
+            for(Location loc : grid.locations()) {
+            	assertFalse(found.contains(loc),"The location "+loc+" appeared twice in locations()");
+            	found.add(loc);
+            }
+        }    
+	}
+    
+    @Test
+    public void testInvalidLocations() {
+        for (int j = 0; j < 10; j++) {
+            Grid<String> grid = (Grid<String>) gridGen.generate();
+            assertFalse(grid.isOnGrid(new Location(-1, 3)));
+            assertFalse(grid.isOnGrid(new Location(2, -2)));
+            assertFalse(grid.isOnGrid(new Location(grid.numRows(), 0)));
+            assertFalse(grid.isOnGrid(new Location(0, grid.numColumns())));
+            assertFalse(grid.isOnGrid(null));
+            assertThrows(IndexOutOfBoundsException.class, ()-> grid.checkLocation(new Location(-1,2)));
         }
     }
 
+    @Test
+    public void testCopy() {
+        for (int j = 0; j < 10; j++) {
+            Grid<String> grid = (Grid<String>) gridGen.generate();
+            IGrid<String> newGrid = grid.copy();
+            for(Location loc : grid.locations()) {
+            	assertEquals(grid.get(loc), newGrid.get(loc));
+            }
+        }
+    	
+    }
 }
