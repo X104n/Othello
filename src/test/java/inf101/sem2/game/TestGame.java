@@ -4,10 +4,10 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import inf101.sem2.game.DumbPlayer;
 import inf101.sem2.game.Game;
-import inf101.sem2.game.Player;
 import inf101.sem2.game.TicTacToe;
+import inf101.sem2.player.DumbPlayer;
+import inf101.sem2.player.Player;
 import inf101.sem2.terminal.TerminalGraphics;
 
 class TestGame {

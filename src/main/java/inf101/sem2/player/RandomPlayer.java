@@ -1,9 +1,10 @@
-package inf101.sem2.game;
+package inf101.sem2.player;
 
 import java.util.Collections;
 import java.util.List;
 
 import inf101.grid.Location;
+import inf101.sem2.game.Game;
 
 /**
  * This Player chooses a random move among all the possible moves.

@@ -13,7 +13,7 @@ import inf101.grid.Location;
 import inf101.sem2.game.Game;
 import inf101.sem2.game.GameBoard;
 import inf101.sem2.game.Graphics;
-import inf101.sem2.game.Player;
+import inf101.sem2.player.Player;
 
 /**
  * This combines a message field and a clickable grid in one JPanel

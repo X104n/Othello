@@ -1,4 +1,4 @@
-package inf101.sem2.game;
+package inf101.sem2.player;
 
 import java.util.ArrayList;
 import java.util.Iterator;

@@ -1,6 +1,7 @@
-package inf101.sem2.game;
+package inf101.sem2.player;
 
 import inf101.grid.Location;
+import inf101.sem2.game.Game;
 
 /**
  * This AI is based on an algorithm that is not curriculum for INF101, but maybe for INF102.

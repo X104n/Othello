@@ -4,6 +4,7 @@ import inf101.grid.Grid;
 import inf101.grid.GridDirection;
 import inf101.grid.IGrid;
 import inf101.grid.Location;
+import inf101.sem2.player.Player;
 
 public class GameBoard extends Grid<Player>{
 
@@ -19,6 +20,17 @@ public class GameBoard extends Grid<Player>{
 			System.err.println("Can not place at "+loc+".");
 	}
 
+	
+	/**
+	 * This method determines wether or not it is allowed to place on a given location.
+	 * This method does not consider the rules of the game just wether the space on the gameBoard
+	 * is available.
+	 * 
+	 * This implementation only allows for one piece in each square of the board.
+	 * 
+	 * @param loc
+	 * @return
+	 */
 	public boolean canPlace(Location loc) {
 
 		try {
@@ -94,15 +106,24 @@ public class GameBoard extends Grid<Player>{
 		return count;
 	}
 
+	/**
+	 * This method checks whether all locations of the board is occupied 
+	 * or there are any empty places on the board.
+	 * 
+	 * @return
+	 */
 	public boolean isFull() {
 		for(Location loc : locations()) {
-			if(get(loc)==null)
+			if(canPlace(loc))
 				return false;
 		}
 		return true;
 	}
 	
 	
+	/**
+	 * Makes a shallow copy of the board
+	 */
 	public GameBoard copy() { 
 		GameBoard board = new GameBoard(this.numRows(), this.numColumns());
 		fillCopy(board);

@@ -6,9 +6,9 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 import inf101.grid.Location;
-import inf101.sem2.game.DumbPlayer;
 import inf101.sem2.game.GameBoard;
-import inf101.sem2.game.Player;
+import inf101.sem2.player.DumbPlayer;
+import inf101.sem2.player.Player;
 
 class GameBoardTest {
 

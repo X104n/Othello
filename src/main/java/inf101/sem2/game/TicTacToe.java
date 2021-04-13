@@ -2,7 +2,9 @@ package inf101.sem2.game;
 
 import inf101.grid.Location;
 import inf101.sem2.GUI.GameGUI;
-import inf101.sem2.terminal.ConsolePlayer;
+import inf101.sem2.player.ConsolePlayer;
+import inf101.sem2.player.MiniMaxPlayer;
+import inf101.sem2.player.Player;
 import inf101.sem2.terminal.TerminalGraphics;
 
 public class TicTacToe extends Game{
@@ -50,7 +52,7 @@ public class TicTacToe extends Game{
 	}
 
 
-	protected TicTacToe copy() {
+	public TicTacToe copy() {
 		TicTacToe game = new TicTacToe(graphics);
 		copyTo(game);
 		return game;

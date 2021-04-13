@@ -17,9 +17,10 @@ import javax.swing.JPanel;
 
 import inf101.sem2.game.ConnectFour;
 import inf101.sem2.game.Game;
-import inf101.sem2.game.MiniMaxPlayer;
-import inf101.sem2.game.Player;
 import inf101.sem2.game.TicTacToe;
+import inf101.sem2.player.GuiPlayer;
+import inf101.sem2.player.MiniMaxPlayer;
+import inf101.sem2.player.Player;
 
 /**
  * This class is a Game menu which lets you choose which game to play.

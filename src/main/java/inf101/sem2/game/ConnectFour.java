@@ -3,18 +3,12 @@ package inf101.sem2.game;
 import inf101.grid.GridDirection;
 import inf101.grid.Location;
 import inf101.sem2.GUI.GameGUI;
-import inf101.sem2.terminal.ConsolePlayer;
+import inf101.sem2.player.ConsolePlayer;
+import inf101.sem2.player.MiniMaxPlayer;
+import inf101.sem2.player.Player;
 import inf101.sem2.terminal.TerminalGraphics;
 
 public class ConnectFour extends Game {
-
-	ConnectFour(GameBoard board, Graphics graphics) {
-		super(board, graphics);
-	}
-
-	ConnectFour(GameBoard board, Graphics graphics,Iterable<Player> players) {
-		super(board, graphics,players);
-	}
 
 	public ConnectFour(Graphics graphics, Player p1, Player p2) {
 		this(graphics);
@@ -23,7 +17,7 @@ public class ConnectFour extends Game {
 	}
 
 	public ConnectFour(Graphics graphics) {
-		this(new GameBoard(6,7), graphics);
+		super(new GameBoard(6,7), graphics);
 	}
 
 	public ConnectFour(Graphics graphics, Iterable<Player> players) {
@@ -73,7 +67,7 @@ public class ConnectFour extends Game {
 
 
 	@Override
-	protected Game copy() {
+	public Game copy() {
 		ConnectFour game = new ConnectFour(graphics);
 		copyTo(game);
 		return game;

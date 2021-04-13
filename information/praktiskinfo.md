@@ -1,5 +1,5 @@
 # Om semesteroppgaven
-*Denne filen inneholder praktisk info om [Semesteroppgave 1: “Rogue One oh one”](https://git.app.uib.no/ii/inf101/21v/assignments)* Semesteroppgaven er *obligatorisk*, 
+*Denne filen inneholder praktisk info om [Semesteroppgave 2: “Othello”](https://git.app.uib.no/ii/inf101/21v/assignments)* Semesteroppgaven er *obligatorisk*, 
 og er ment å gi innsikt i og erfaring med
 teknikkene vi har lært hittil i semesteret, og å teste en del praktiske
 ferdigheter som ikke er så lette å teste på eksamen. Se under angående
@@ -33,13 +33,16 @@ Til sammen teller de to semesteroppgavene 30 % på karakteren i faget.
 
 Ved poengsetting gis det totalt opp til 15 poeng der vi legger vekt på følgende:
 
-* (7 poeng) At du har fungerende løsninger på de forskjellige deloppgavene
-* (3 poeng) Tekst-svarene i svar.md er riktige og forståelige
-* (3 poeng) At koden din er ryddig og at eventuelle deler som er vanskelig å forstå er forklart i kommentarer
-* (2 poeng) Kreativitet (først og fremst for løsninger på oppgave 5.3 og oppgave 7)
+* (4 poeng) At Othello fungerer rett.
+* (4 poeng) Ryddig og lesbar kode. Gjenbruk av kode og de teknikkene vi har lært er brukt rett.
+* (2 poeng) Plan og dokumentasjon 
+* (2 poeng) Testing 
 
 Merk at har du ikke gjort noen ting innen en av disse kategoriene så blir det 0 poeng der.
 Vær derfor sikker på at du har gjort noe på alle disse kategoriene, alt trenger ikke være perfekt for å leveres inn.
+
+På denne semesteroppgaven er det ikke gitt stegvis beskrivelse av hva dere gjør, det er også mer enn en måte å løse oppgaven på. Derfor er det viktig at dere fyller ut detaljert informasjon i svar.md om hva dere har gjort
+og hva dere ikke fikk til slik at gruppeleder får god oversikt over deres innlevering.
 
 ### Samarbeid
 

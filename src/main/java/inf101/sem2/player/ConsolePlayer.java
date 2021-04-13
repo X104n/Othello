@@ -1,11 +1,10 @@
-package inf101.sem2.terminal;
+package inf101.sem2.player;
 
 import static inf101.sem2.terminal.TerminalInput.*;
 
 import java.util.Scanner;
 
 import inf101.grid.Location;
-import inf101.sem2.game.AbstractPlayer;
 import inf101.sem2.game.ConnectFour;
 import inf101.sem2.game.Game;
 import inf101.sem2.game.GameBoard;

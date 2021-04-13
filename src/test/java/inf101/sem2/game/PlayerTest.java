@@ -4,9 +4,9 @@ import static org.junit.jupiter.api.Assertions.*;
 
 import org.junit.jupiter.api.Test;
 
-import inf101.sem2.game.AbstractPlayer;
-import inf101.sem2.game.DumbPlayer;
-import inf101.sem2.game.Player;
+import inf101.sem2.player.AbstractPlayer;
+import inf101.sem2.player.DumbPlayer;
+import inf101.sem2.player.Player;
 
 class PlayerTest {
 

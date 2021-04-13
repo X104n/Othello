@@ -14,7 +14,7 @@ import inf101.grid.Grid;
 import inf101.grid.Location;
 import inf101.sem2.game.Game;
 import inf101.sem2.game.GameBoard;
-import inf101.sem2.game.Player;
+import inf101.sem2.player.Player;
 
 /**
  * This class is a grid of Game panels.

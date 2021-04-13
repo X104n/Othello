@@ -4,6 +4,8 @@ import java.util.ArrayList;
 import java.util.List;
 
 import inf101.grid.Location;
+import inf101.sem2.player.Player;
+import inf101.sem2.player.PlayerList;
 
 /**
  * This class models turn based games where each round the current player gets to place one piece.
@@ -71,7 +73,7 @@ public abstract class Game {
 	 * When players are asked to make a move we don't want them to change the
 	 * state of the game so we send them a copy of the game.
 	 */
-	protected abstract Game copy();
+	public abstract Game copy();
 
 	public void copyTo(Game target) {
 		target.board = board.copy();

@@ -1,6 +1,7 @@
-package inf101.sem2.game;
+package inf101.sem2.player;
 
 import inf101.grid.Location;
+import inf101.sem2.game.Game;
 
 /**
  * Players has only one method that is specific to the game they play.
