@@ -1,30 +1,16 @@
 # Om semesteroppgaven
-*Denne filen inneholder praktisk info om [Semesteroppgave 2: “Othello”](https://git.app.uib.no/ii/inf101/21v/assignments)* Semesteroppgaven er *obligatorisk*, 
+*Denne filen inneholder praktisk info om Semesteroppgave 2: “Othello”* Semesteroppgaven er *obligatorisk*, 
 og er ment å gi innsikt i og erfaring med
-teknikkene vi har lært hittil i semesteret, og å teste en del praktiske
+teknikkene vi har lært hittil i semesteret, og å teste en del
 ferdigheter som ikke er så lette å teste på eksamen. Se under angående
 karakter.
 
 ### Innlevering
 Oppgaven skal leveres inn via GitLab **før fredag 12. mars kl. 16:00**. 
 
-*Hvis du ikke har brukt GitLab enda, bør du gå gjennom lab 0 til lab 2.*
+Hvis du får mindre enn 6 poeng på én eller begge av semesteroppgavene **får du ikke ta eksamen**.  
 
-Hvis du får mindre enn 6 poeng på én eller begge av semesteroppgaven **får du ikke ta eksamen**.  
-
-* **Semesteroppgaven vil være mye lettere å løse når du har ferdighetene og teorien fra lab-oppgavene** – det er best å ta seg tid til å løse disse først!
-
-### Læringsmål
-
-Målene for denne semesteroppgaven er:
-
-* Å kunne sette seg inn i et eksisterende program/rammeverk
-* Gjøre ferdig manglende funksjonalitet.
-* Fikse bugs ved å bruke JUnit tester
-* Forstå hvordan *interfaces* brukes til å kommunisere mellom objekter.
-* Å lage programmer hvor objektene selv styrer sin egen oppførsel 
-* Å beskrive komplekse objekt-orienterte systemer på en forståelig måte.
-* Utvide det ut ifra *spesifikasjoner* (beskrivelsen i oppgavene).
+* **Semesteroppgaven vil være mye lettere å løse når du har ferdighetene og teorien fra lab-oppgavene** – det kan være lurt å ta seg tid til å løse disse først!
 
 ### Retting og poeng
 Semesteroppgaven blir rettet av en gruppeleder, som gir tilbakemeldinger på
@@ -33,12 +19,12 @@ Til sammen teller de to semesteroppgavene 30 % på karakteren i faget.
 
 Ved poengsetting gis det totalt opp til 15 poeng der vi legger vekt på følgende:
 
+* (4 poeng) Teori og plan (oppgave 1 og 2) 
 * (4 poeng) At Othello fungerer rett.
 * (4 poeng) Ryddig og lesbar kode. Gjenbruk av kode og de teknikkene vi har lært er brukt rett.
-* (2 poeng) Plan og dokumentasjon 
-* (2 poeng) Testing 
+* (3 poeng) Testing 
 
-Merk at har du ikke gjort noen ting innen en av disse kategoriene så blir det 0 poeng der.
+Merk at har du ikke gjort noen ting innen en av disse kategoriene så blir det 0 poeng på den kategorien.
 Vær derfor sikker på at du har gjort noe på alle disse kategoriene, alt trenger ikke være perfekt for å leveres inn.
 
 På denne semesteroppgaven er det ikke gitt stegvis beskrivelse av hva dere gjør, det er også mer enn en måte å løse oppgaven på. Derfor er det viktig at dere fyller ut detaljert informasjon i svar.md om hva dere har gjort
@@ -83,22 +69,10 @@ deloppgave, i tilfelle du mister det du jobber med på din egen maskin.
   innleveringer, må du gjøre det *med en gang* (gjør labbene!). Du kan ikke regne med å få hjelp til
   dette på innleveringsdagen, så gå på gruppetimer **så tidlig som mulig** og still spørsmål på Discord.
 
-* Alle testene bør passere (være grønne). Det blir i tillegg lagt betydelig
-  vekt på kodekvalitet og dokumentasjon. Dvs. koden din skal ikke bare *virke*,
-  den være *lett å forstå og å endre*.
-
 * Du kan selv sjekke status i
   [innleveringssystemet](TODO: link) – det vil gi rask
   tilbakemelding hver gang du pusher til Gitlab, også før innleveringsfristen.
   Alt skal være *grønt* der. Hvis du ser feil der som du ikke finner ut av, er det bare å spørre om hjelp.
-
-## Symboler i oppgaveteksten
-
-Vi har lagt inn en del symboler i oppgaveteksten for å markere viktige ting i deloppgavene. Det kan være at disse ikke vises skikkelig hvis du leser README-filen inne i Eclipse, da anbefaler vi at dere leser de på Retting (INF101 sin GitLab-instanse).
-
-- 👉: Dette er selve oppgavesetningen som sier hva som skal gjøres.
-- ✅: Dette er en test som (sannsynligvis) er rød før du gjør oppgaven, og skal bli grønn når oppgaven er ferdig.
-- 🤔: Dette er et spørsmål til refleksjon. Du skal ikke levere noe her, men forståelse for dette vil hjelpe deg til å løse oppgaven.
 
 ### Tips
 * Det er litt mer å gjøre enn i en vanlig ukeoppgave, og det er *veldig mye* å sette seg inn i. 

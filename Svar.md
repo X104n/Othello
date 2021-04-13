@@ -2,16 +2,13 @@
 
 *I denne filen legger du inn svar på spørsmålene som stilles i oppgaveteksten, eventuelt kommentarer og informasjon om kreative løsninger*
 
-## Kommentarer
-(Eventuelle kommentarer på oppgaven eller koden her).
+   
+## Oppgave 1
+(skriv svar her)
 
-## Spørsmål
+## Oppgave 2
+(skriv svar her)
 
-### Plan
-(Skriv planen her)
+## Oppgave 3
+(skriv svar her)
 
-### Utførelse
-(Forklar i korte trekk hva du har gjort)
-
-### Flere utvidelser
-(Legg inn eventuelle flere utvidelser du har gjort her)
