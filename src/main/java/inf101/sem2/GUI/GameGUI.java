@@ -40,7 +40,7 @@ public class GameGUI implements ActionListener, Graphics{
 		
 		//make new main window for the game
 		frame = new JFrame(); 
-		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
 		frame.add(buttons, BorderLayout.SOUTH);
 	}
 	

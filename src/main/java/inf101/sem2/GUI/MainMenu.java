@@ -74,6 +74,10 @@ public class MainMenu implements ActionListener{
 	//that gets called when buttons are clicked.
 	@Override
 	public void actionPerformed(ActionEvent e) {
+		if(game != null) {
+			System.err.println("Game is in progress, only one game at the time is possible.");
+			return;
+		}
 		Iterable<Player> players = getPlayers();
 		GameGUI graphics = new GameGUI();
 		
