@@ -23,9 +23,9 @@ public abstract class AbstractGenerator<T> implements IGenerator<T> {
 	public List<T> generateEquals(Random r, int n) {
 		long seed = r.nextLong();
 
-		List<T> list = new ArrayList<T>();
+		List<T> list = new ArrayList<>();
 
-		for (int i = 0; i < n; i++) {
+		for(int i = 0; i < n; i++) {
 			list.add(generate(new Random(seed)));
 		}
 

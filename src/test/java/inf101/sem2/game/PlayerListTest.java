@@ -1,12 +1,12 @@
 package inf101.sem2.game;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertThrows;
 
 import inf101.sem2.player.DumbPlayer;
 import inf101.sem2.player.Player;
 import inf101.sem2.player.PlayerList;
+import org.junit.jupiter.api.Test;
 
 class PlayerListTest {
 
@@ -25,7 +25,7 @@ class PlayerListTest {
 		assertEquals(p2, players.nextPlayer());
 		assertEquals(p2, players.getCurrentPlayer());
 	}
-	
+
 	@Test
 	void testAddPlayers() {
 		PlayerList players = new PlayerList();
@@ -34,10 +34,10 @@ class PlayerListTest {
 		players.add(p1);
 		players.add(p2);
 
-		assertThrows(IllegalArgumentException.class, ()->players.add(p1));
+		assertThrows(IllegalArgumentException.class, () -> players.add(p1));
 
 		Player p3 = new DumbPlayer('O');
-		assertThrows(IllegalArgumentException.class, ()->players.add(p3));
+		assertThrows(IllegalArgumentException.class, () -> players.add(p3));
 	}
 
 	@Test
@@ -47,21 +47,21 @@ class PlayerListTest {
 		Player p2 = new DumbPlayer('O');
 		Player p3 = new DumbPlayer('T');
 		players.add(p1);
-		
+
 		assertThrows(IllegalArgumentException.class, () -> players.remove(p2));
 		players.add(p2);
 		players.add(p3);
-		
+
 		players.setCurrentPlayer(p1);
 		players.remove(p3);
 		assertEquals(p1, players.getCurrentPlayer());
 		players.add(p3);
-		
+
 		players.setCurrentPlayer(p2);
 		players.remove(p1);
 		assertEquals(p2, players.getCurrentPlayer());
 		players.add(p1);
-		
+
 		players.setCurrentPlayer(p1);
 		players.remove(p1);
 		assertEquals(p2, players.getCurrentPlayer());

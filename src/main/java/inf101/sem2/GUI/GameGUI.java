@@ -13,9 +13,9 @@ import javax.swing.JButton;
 import javax.swing.JFrame;
 import javax.swing.JLabel;
 import javax.swing.JPanel;
+import javax.swing.WindowConstants;
 
 import inf101.grid.Location;
-import inf101.sem2.game.Game;
 import inf101.sem2.game.GameBoard;
 import inf101.sem2.game.Graphics;
 import inf101.sem2.player.Player;
@@ -24,11 +24,10 @@ import inf101.sem2.player.Player;
 /**
  * This class combines two buttons with a MNKGameGUI in one JFrame
  * The buttons are used to select type of game to play.
- *  
- * @author Martin Vatshelle - martin.vatshelle@uib.no
  *
+ * @author Martin Vatshelle - martin.vatshelle@uib.no
  */
-public class GameGUI implements ActionListener, Graphics{
+public class GameGUI implements ActionListener, Graphics {
 
 	private JButton backButton; //Button to go back to end the game and go back to main menu
 	private JButton restartButton; //Button to restart the game
@@ -36,34 +35,33 @@ public class GameGUI implements ActionListener, Graphics{
 	private ClickableGrid clickablePanels; //clickable grid for user input
 	private Iterable<Player> players;
 	private JFrame frame;
-	
-	public boolean wantRestart=false;
+
+	public boolean wantRestart = false;
 	public boolean ended = false;
-	
-	
+
 
 	public GameGUI(Iterable<Player> players) {
 		this.players = players;
 		JPanel buttons = createButtonPanel();
 		statusMessage = new JLabel();
-		statusMessage.setPreferredSize(new Dimension(300,50));
+		statusMessage.setPreferredSize(new Dimension(300, 50));
 		statusMessage.setText("Welcome!");
-		
+
 
 		//make new main window for the game
-		frame = new JFrame(); 
-		frame.setDefaultCloseOperation(JFrame.DISPOSE_ON_CLOSE);
+		frame = new JFrame();
+		frame.setDefaultCloseOperation(WindowConstants.DISPOSE_ON_CLOSE);
 		frame.add(statusMessage, BorderLayout.NORTH);
 		frame.add(buttons, BorderLayout.SOUTH);
 		drawGameBoard();
 	}
 
-	public void setName(String name){
+	public void setName(String name) {
 		frame.setTitle(name);
 	}
 
 	/**
-	 * Draws the gameBoard on the JFrame 
+	 * Draws the gameBoard on the JFrame
 	 * and refreshes the rest of the graphics
 	 */
 	private void drawGameBoard() {
@@ -75,7 +73,7 @@ public class GameGUI implements ActionListener, Graphics{
 	}
 
 	/**
-	 * Helper method that creates the button panel 
+	 * Helper method that creates the button panel
 	 */
 	private JPanel createButtonPanel() {
 		backButton = new JButton();
@@ -85,7 +83,7 @@ public class GameGUI implements ActionListener, Graphics{
 		restartButton = new JButton();
 		restartButton.addActionListener(this);
 		restartButton.setText("Restart");
-		
+
 		JPanel buttons = new JPanel();
 		//buttons.setLayout(new BorderLayout());
 		//buttons.add(backButton, BorderLayout.WEST);
@@ -96,7 +94,7 @@ public class GameGUI implements ActionListener, Graphics{
 	}
 
 
-	// Called whenever a button is pressed  
+	// Called whenever a button is pressed
 	@Override
 	public void actionPerformed(ActionEvent e) {
 		//removeClickablePanels();
@@ -110,18 +108,19 @@ public class GameGUI implements ActionListener, Graphics{
 			wantRestart = true;
 			return;
 		}
-		
+
 		drawGameBoard();
 	}
 
 	public void removeClickablePanels() {
-		if(clickablePanels!=null && clickablePanels.getParent()!=null)
+		if(clickablePanels != null && clickablePanels.getParent() != null) {
 			clickablePanels.getParent().remove(clickablePanels);
+		}
 	}
 
 	@Override
 	public void displayMessage(String message) {
-		statusMessage.setText(message);		
+		statusMessage.setText(message);
 	}
 
 	@Override
@@ -129,7 +128,7 @@ public class GameGUI implements ActionListener, Graphics{
 		removeClickablePanels();
 		clickablePanels = new ClickableGrid(board, players, getColors());
 		frame.add("Center", clickablePanels);
-		frame.setMinimumSize(new Dimension(100*board.numColumns(), 100*board.numRows()+100));
+		frame.setMinimumSize(new Dimension(100 * board.numColumns(), 100 * board.numRows() + 100));
 		drawGameBoard();
 	}
 
@@ -138,13 +137,13 @@ public class GameGUI implements ActionListener, Graphics{
 	}
 
 	/**
-	 * Maps from Piece values to colors 
-	 * 
-	 * @param pieceAt The piece to be drawn 
+	 * Maps from Piece values to colors
+	 *
+	 * @param pieceAt The piece to be drawn
 	 * @return The color that this GUI implementation associates with the provided piece
 	 */
 	protected static List<Color> getColors() {
-		Color[] colors = {Color.BLUE,Color.RED};
+		Color[] colors = {Color.BLUE, Color.RED};
 		return Arrays.asList(colors);
 	}
 }

@@ -2,7 +2,6 @@ package inf101.sem2.game;
 
 import inf101.grid.GridDirection;
 import inf101.grid.Location;
-import inf101.sem2.GUI.GameGUI;
 import inf101.sem2.player.ConsolePlayer;
 import inf101.sem2.player.MiniMaxPlayer;
 import inf101.sem2.player.Player;
@@ -17,16 +16,16 @@ public class ConnectFour extends Game {
 	}
 
 	public ConnectFour(Graphics graphics) {
-		super(new GameBoard(6,7), graphics);
+		super(new GameBoard(6, 7), graphics);
 	}
 
 	public ConnectFour(Graphics graphics, Iterable<Player> players) {
-		super(new GameBoard(6,7), graphics, players);
+		super(new GameBoard(6, 7), graphics, players);
 	}
 
 	@Override
 	public boolean isWinner(Player p) {
-		return board.countNumInRow(p)>=4;
+		return board.countNumInRow(p) >= 4;
 	}
 
 	@Override
@@ -36,17 +35,13 @@ public class ConnectFour extends Game {
 				return true;
 			}
 		}
-		
-		if(board.isFull()) {
-			return true;
-		}
-		
-		return false;
+
+		return board.isFull();
 	}
 
 	public Location drop(int col) {
-		Location loc = new Location(0,col);
-		
+		Location loc = new Location(0, col);
+
 		while(board.canPlace(loc) && !canPlace(loc)) {
 			loc = loc.getNeighbor(GridDirection.SOUTH);
 		}
@@ -55,11 +50,14 @@ public class ConnectFour extends Game {
 
 	@Override
 	public boolean canPlace(Location loc, Player p) {
-		return canPlace(board,loc,p);
+		return canPlace(board, loc, p);
 	}
+
+	@Override
 	public boolean canPlace(Location loc) {
-		return canPlace(board,loc,getCurrentPlayer());
+		return canPlace(board, loc, getCurrentPlayer());
 	}
+
 	@Override
 	public boolean canPlace(GameBoard board, Location loc, Player p) {
 		return board.canPlace(loc) && !board.canPlace(loc.getNeighbor(GridDirection.SOUTH));
@@ -75,7 +73,7 @@ public class ConnectFour extends Game {
 
 	public static void main(String[] args) {
 		Player player1 = new ConsolePlayer('X');
-		Player player2 = new MiniMaxPlayer('O',4);
+		Player player2 = new MiniMaxPlayer('O', 4);
 		Game game = new ConnectFour(new TerminalGraphics(), player1, player2);
 		game.run();
 	}

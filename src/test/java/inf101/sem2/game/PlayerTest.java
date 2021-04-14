@@ -1,12 +1,14 @@
 package inf101.sem2.game;
 
-import static org.junit.jupiter.api.Assertions.*;
-
-import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.assertFalse;
+import static org.junit.jupiter.api.Assertions.assertTrue;
+import static org.junit.jupiter.api.Assertions.fail;
 
 import inf101.sem2.player.AbstractPlayer;
 import inf101.sem2.player.DumbPlayer;
 import inf101.sem2.player.Player;
+import org.junit.jupiter.api.Test;
 
 class PlayerTest {
 
@@ -22,7 +24,7 @@ class PlayerTest {
 		assertFalse(AbstractPlayer.isValidName("\n"));
 		assertFalse(AbstractPlayer.isValidName("\t"));
 	}
-	
+
 	@Test
 	void testValidateName() {
 		testValidName("Martin");
@@ -30,7 +32,7 @@ class PlayerTest {
 			AbstractPlayer.validateName("");
 		} catch (IllegalArgumentException e) {
 			return;
-		} catch(Exception e) {
+		} catch (Exception e) {
 			fail("Should throw an IllegalArgumentException");
 		}
 	}
@@ -39,7 +41,7 @@ class PlayerTest {
 		try {
 			assertEquals(name, AbstractPlayer.validateName(name));
 		} catch (Exception e) {
-			fail(name+" is not a vailld name.");
+			fail(name + " is not a vailld name.");
 		}
 	}
 
@@ -50,7 +52,7 @@ class PlayerTest {
 
 	private void testConstruct(Player player) {
 		testValidName(player.toString());
-		
+
 	}
 
 }

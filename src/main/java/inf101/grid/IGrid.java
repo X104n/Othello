@@ -6,18 +6,18 @@ public interface IGrid<T> extends Iterable<T> {
 
 	/**
 	 * Get the contents of the cell in the given x,y location.
-	 *
+	 * <p>
 	 * y must be greater than or equal to 0 and less than getHeight(). x must be
 	 * greater than or equal to 0 and less than getWidth().
 	 *
 	 * @param loc The (x,y) position of the grid cell to get the contents of.
 	 * @throws IndexOutOfBoundsException if !isOnGrid(loc)
 	 */
-	T get(Location loc);	
+	T get(Location loc);
 
 	/**
 	 * Get the contents of the cell in the given x,y location.
-	 *
+	 * <p>
 	 * y must be greater than or equal to 0 and less than getHeight(). x must be
 	 * greater than or equal to 0 and less than getWidth().
 	 *
@@ -27,10 +27,10 @@ public interface IGrid<T> extends Iterable<T> {
 	 *                      bounds or contents == null.
 	 */
 	T getOrDefault(Location pos, T defaultResult);
-	
+
 	/**
 	 * Set the contents of the cell in the given x,y location.
-	 *
+	 * <p>
 	 * y must be greater than or equal to 0 and less than getHeight(). x must be
 	 * greater than or equal to 0 and less than getWidth().
 	 *
@@ -39,16 +39,20 @@ public interface IGrid<T> extends Iterable<T> {
 	 * @throws IndexOutOfBoundsException if !isOnGrid(pos)
 	 */
 	void set(Location pos, T element);
-	
-	/** @return The height of the grid. */
+
+	/**
+	 * @return The height of the grid.
+	 */
 	int numRows();
 
-	/** @return The width of the grid. */
+	/**
+	 * @return The width of the grid.
+	 */
 	int numColumns();
 
 	/**
 	 * Initialise the contents of all cells using an initialiser function.
-	 *
+	 * <p>
 	 * The function will be called with the (x,y) position of an element, and is
 	 * expected to return the element to place at that position. For example:
 	 *
@@ -59,11 +63,11 @@ public interface IGrid<T> extends Iterable<T> {
 	 *
 	 * @param initialiser The initialiser function
 	 */
-	void fill(Function<Location, T> initialiser);
+	void fill(Function<Location,T> initialiser);
 
 	/**
 	 * Set the contents of all cells to <code>element</code>
-	 *
+	 * <p>
 	 * For example:
 	 *
 	 * <pre>
@@ -84,7 +88,7 @@ public interface IGrid<T> extends Iterable<T> {
 
 	/**
 	 * Check if coordinates are valid.
-	 *
+	 * <p>
 	 * Valid coordinates are 0 <= pos.getX() < getWidth(), 0 <= pos.getY() <
 	 * getHeight().
 	 *
@@ -108,7 +112,6 @@ public interface IGrid<T> extends Iterable<T> {
 	Iterable<Location> locations();
 
 
-
 	boolean canGo(Location from, GridDirection dir);
-	
+
 }

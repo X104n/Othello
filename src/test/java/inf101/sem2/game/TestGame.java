@@ -1,14 +1,11 @@
 package inf101.sem2.game;
 
-import static org.junit.jupiter.api.Assertions.*;
+import static org.junit.jupiter.api.Assertions.assertTrue;
 
-import org.junit.jupiter.api.Test;
-
-import inf101.sem2.game.Game;
-import inf101.sem2.game.TicTacToe;
 import inf101.sem2.player.DumbPlayer;
 import inf101.sem2.player.Player;
 import inf101.sem2.terminal.TerminalGraphics;
+import org.junit.jupiter.api.Test;
 
 class TestGame {
 
@@ -16,7 +13,7 @@ class TestGame {
 	void testDumbPlayerCanPlay() {
 		Player p1 = new DumbPlayer('X');
 		Player p2 = new DumbPlayer('O');
-		Game game = new TicTacToe(new TerminalGraphics(),p1,p2);
+		Game game = new TicTacToe(new TerminalGraphics(), p1, p2);
 		game.run();
 		assertTrue(game.gameOver());
 	}

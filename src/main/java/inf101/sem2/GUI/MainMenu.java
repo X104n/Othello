@@ -7,7 +7,6 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
-import javax.swing.BorderFactory;
 import javax.swing.Box;
 import javax.swing.BoxLayout;
 import javax.swing.JButton;
@@ -26,28 +25,27 @@ import inf101.sem2.player.RestartException;
 
 /**
  * This class is a Game menu which lets you choose which game to play.
- * 
- * @author Martin Vatshelle - martin.vatshelle@uib.no
  *
+ * @author Martin Vatshelle - martin.vatshelle@uib.no
  */
-public class MainMenu implements ActionListener{
+public class MainMenu implements ActionListener {
 
-	private JButton playConnectFourButton; //Button to start new 4 in row game
-	private JButton playTicTacToeButton; //Button to start new TicTacToe game
-	private JFrame frame;
+	private final JButton playConnectFourButton; //Button to start new 4 in row game
+	private final JButton playTicTacToeButton; //Button to start new TicTacToe game
+	private final JFrame frame;
 	public Game game;
 	public GameGUI gui;
-	boolean start = false;
+	boolean start;
 
 	public MainMenu() {
 		//make new main window for the game
-		frame = new JFrame(); 
+		frame = new JFrame();
 		frame.setTitle("Game menu");
 
 		//make panel for game buttons
 		JPanel buttons = new JPanel();
 		buttons.setLayout(new BoxLayout(buttons, BoxLayout.Y_AXIS));
-		
+
 		//add one button for each game
 		playTicTacToeButton = addButton(buttons, "Tic-Tac-Toe");
 		playConnectFourButton = addButton(buttons, "Connect Four");
@@ -60,8 +58,8 @@ public class MainMenu implements ActionListener{
 		frame.setVisible(true);
 	}
 
-	
-	JButton addButton(JPanel buttons, String name){
+
+	JButton addButton(JPanel buttons, String name) {
 		JButton button = new JButton();
 		button.setText(name);
 		button.setFont(new Font("Arial", Font.PLAIN, 40));
@@ -73,7 +71,7 @@ public class MainMenu implements ActionListener{
 		buttons.add(button);
 		return button;
 	}
-	
+
 	//this method is inherited from ActionListener and is the method
 	//that gets called when buttons are clicked.
 	@Override
@@ -85,17 +83,16 @@ public class MainMenu implements ActionListener{
 
 		Iterable<Player> players = getPlayers();
 		GameGUI graphics = new GameGUI(players);
-		
+
 		if(e.getSource() == playConnectFourButton) {
-			game = new ConnectFour(graphics,players);
+			game = new ConnectFour(graphics, players);
 		}
 		if(e.getSource() == playTicTacToeButton) {
-			game = new TicTacToe(graphics,players);
+			game = new TicTacToe(graphics, players);
 		}
-		if(game==null) {
+		if(game == null) {
 			System.err.println("Button not recognized, no game created.");
-		}
-		else {
+		} else {
 			gui = graphics;
 			gui.ended = false;
 			gui.wantRestart = false;
@@ -106,36 +103,37 @@ public class MainMenu implements ActionListener{
 
 	/**
 	 * Generates a list of players based on user input
-	 * 
+	 *
 	 * @return an Iterable of 2 Players
 	 */
 	public static Iterable<Player> getPlayers() {
-		ArrayList<Player> players = new ArrayList<Player>();
+		ArrayList<Player> players = new ArrayList<>();
 		//add player1
 		players.add(new GuiPlayer('X'));
 		//add player2
 		if(promptMultiplayer()) {
 			players.add(new GuiPlayer('O'));
-		}else {
+		} else {
 			//make AI
 			//TODO: prompt for level of intelligence in AI player
 			players.add(new MiniMaxPlayer('O', 5));
 		}
-		
-		
+
+
 		return players;
 	}
-	
+
 	/**
-	 * Helper method that prompts for multiplayer or not  
+	 * Helper method that prompts for multiplayer or not
+	 *
 	 * @return true if multiplayer is selected, false otherwise
 	 */
 	private static boolean promptMultiplayer() {
 		Object[] possibilities = {"Multiplayer", "Single Player (against AI)"};
-		String s = (String)JOptionPane.showInputDialog(
-				null,
-				"Welcome:\n"
-						+ "Select one or two players",
+		String s = (String) JOptionPane.showInputDialog(
+						null,
+						"Welcome:\n"
+										+ "Select one or two players",
 						"MKGame StartUp",
 						JOptionPane.PLAIN_MESSAGE,
 						null,
@@ -143,12 +141,12 @@ public class MainMenu implements ActionListener{
 						null);
 
 		//If a string was returned, say so.
-		if ((s != null) && (s.length() > 0)) {
+		if((s != null) && (s.length() > 0)) {
 			System.out.println("Received " + s);
 		}
 		return s.equals(possibilities[0]);
 	}
-	
+
 	public void run() {
 		while(true) {
 			if(gui != null && gui.ended) {
@@ -172,8 +170,7 @@ public class MainMenu implements ActionListener{
 				} catch (GameEndedException e) {
 					System.err.println("Game ended");
 				}
-			}
-			else{
+			} else {
 				try {
 					Thread.sleep(100);
 				} catch (InterruptedException e) {

@@ -13,11 +13,11 @@ public class TestGUI {
 	public static void main(String[] args) {
 		Player me = new GuiPlayer('X', "MaVa");
 		Player computer = new MiniMaxPlayer('O', 4);
-		ArrayList<Player> players = new ArrayList<Player>();
+		ArrayList<Player> players = new ArrayList<>();
 		players.add(me);
 		players.add(computer);
 		GameGUI graphics = new GameGUI(players);
-		Game game = new TicTacToe(graphics,players);
+		Game game = new TicTacToe(graphics, players);
 		graphics.setName("Tic Tac Toe");
 		graphics.display(game.getGameBoard());
 		game.run();
