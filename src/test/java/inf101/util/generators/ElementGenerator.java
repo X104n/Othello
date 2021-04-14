@@ -6,27 +6,29 @@ import java.util.List;
 import java.util.Random;
 
 public class ElementGenerator<T> extends AbstractGenerator<T> {
-	private List<T> elts;
+	private final List<T> elts;
 
 	/**
 	 * New ElementGenerator, will pick a random element from a collection.
-	 * 
+	 *
 	 * @requires collection must not be empty
 	 */
 	public ElementGenerator(Collection<T> elts) {
-		if (elts.size() == 0)
+		if(elts.size() == 0) {
 			throw new IllegalArgumentException();
+		}
 		this.elts = new ArrayList<>(elts);
 	}
 
 	/**
 	 * New ElementGenerator, will pick a random element from a list.
-	 * 
+	 *
 	 * @requires list must not be empty
 	 */
 	public ElementGenerator(List<T> elts) {
-		if (elts.size() == 0)
+		if(elts.size() == 0) {
 			throw new IllegalArgumentException();
+		}
 		this.elts = elts;
 	}
 

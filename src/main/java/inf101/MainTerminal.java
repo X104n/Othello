@@ -15,7 +15,7 @@ public class MainTerminal {
 			Game game = TerminalMenu.selectGame(players);
 			game.run();
 			done = TerminalMenu.isDone();
-				 
+
 		}
 	}
 

@@ -40,7 +40,7 @@ public class GridGenerator<T> extends AbstractGenerator<IGrid<T>> {
 	 * @param heightGenerator  Should only generate positive numbers
 	 */
 	public GridGenerator(IGenerator<T> elementGenerator, IGenerator<Integer> widthGenerator,
-			IGenerator<Integer> heightGenerator) {
+											 IGenerator<Integer> heightGenerator) {
 		this.elementGenerator = elementGenerator;
 		this.widthGenerator = widthGenerator;
 		this.heightGenerator = heightGenerator;
@@ -54,7 +54,7 @@ public class GridGenerator<T> extends AbstractGenerator<IGrid<T>> {
 	 * @param maxHeight
 	 */
 	public GridGenerator(IGenerator<T> elementGenerator, int maxWidth, int maxHeight) {
-		if (maxWidth < 1 || maxHeight < 1) {
+		if(maxWidth < 1 || maxHeight < 1) {
 			throw new IllegalArgumentException("Width and height must be 1 or greater");
 		}
 

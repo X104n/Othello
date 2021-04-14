@@ -6,7 +6,9 @@ import java.util.Iterator;
 import java.util.List;
 import java.util.function.Function;
 
-/** A Grid contains a values in a 2D rectangular layout. */
+/**
+ * A Grid contains a values in a 2D rectangular layout.
+ */
 public class Grid<T> implements IGrid<T> {
 	private List<T> list;
 	private final List<T> cells;
@@ -15,7 +17,7 @@ public class Grid<T> implements IGrid<T> {
 
 	/**
 	 * Construct a grid with the given dimensions.
-	 *
+	 * <p>
 	 * The initialiser function will be called with the (x,y) position of an
 	 * element, and is expected to return the element to place at that position. For
 	 * example:
@@ -29,8 +31,8 @@ public class Grid<T> implements IGrid<T> {
 	 * @param height
 	 * @param initialiser The initialiser function
 	 */
-	public Grid(int width, int height, Function<Location, T> initialiser) {
-		this(width,height);
+	public Grid(int width, int height, Function<Location,T> initialiser) {
+		this(width, height);
 		fill(initialiser);
 	}
 
@@ -42,16 +44,17 @@ public class Grid<T> implements IGrid<T> {
 	 * @param initElement What the cells should initially hold (possibly null)
 	 */
 	public Grid(int width, int height, T initElement) {
-		this(width,height);
+		this(width, height);
 		fill(initElement);
 	}
 
 	public Grid(int rows, int columns) {
 		this.rows = rows;
 		this.columns = columns;
-		this.cells = new ArrayList<T>(rows*columns);
-		for(int i=0; i<rows*columns; i++)
+		this.cells = new ArrayList<>(rows * columns);
+		for(int i = 0; i < rows * columns; i++) {
 			cells.add(null);
+		}
 	}
 
 	@Override
@@ -74,6 +77,7 @@ public class Grid<T> implements IGrid<T> {
 	/**
 	 * This method checks if a given Location is within the bounds of this grid.
 	 * If it is not, an IndexOutOfBoundsException is thrown.
+	 *
 	 * @param loc the location to check
 	 */
 	public void checkLocation(Location loc) {
@@ -84,8 +88,9 @@ public class Grid<T> implements IGrid<T> {
 
 	@Override
 	public boolean isOnGrid(Location loc) {
-		if(loc == null)
+		if(loc == null) {
 			return false;
+		}
 		if(loc.row < 0 || loc.row >= rows) {
 			return false;
 		}
@@ -120,16 +125,18 @@ public class Grid<T> implements IGrid<T> {
 	}
 
 	public void fillCopy(Grid<T> newGrid) {
-		for(Location loc : locations())
-			newGrid.set(loc,this.get(loc));
+		for(Location loc : locations()) {
+			newGrid.set(loc, this.get(loc));
+		}
 	}
-	
-	@Override
-	public void fill(Function<Location, T> initialiser) {
-		if (initialiser == null)
-			throw new NullPointerException();
 
-		for (Location loc : locations()) {
+	@Override
+	public void fill(Function<Location,T> initialiser) {
+		if(initialiser == null) {
+			throw new NullPointerException();
+		}
+
+		for(Location loc : locations()) {
 			set(loc, initialiser.apply(loc));
 		}
 	}
@@ -140,14 +147,14 @@ public class Grid<T> implements IGrid<T> {
 	}
 
 
-
 	@Override
 	public T getOrDefault(Location loc, T defaultResult) {
 		T r = get(loc);
-		if (r != null)
+		if(r != null) {
 			return r;
-		else
+		} else {
 			return defaultResult;
+		}
 	}
 
 
@@ -166,14 +173,15 @@ public class Grid<T> implements IGrid<T> {
 	}
 
 	public Location locationOf(Object source) {
-		for(Location loc : locations()){
-			if(get(loc).equals(source))
+		for(Location loc : locations()) {
+			if(get(loc).equals(source)) {
 				return loc;
+			}
 		}
-		
+
 		throw new IllegalArgumentException("Can not find element.");
 	}
-	
+
 	public void clear() {
 		Collections.fill(cells, null);
 	}

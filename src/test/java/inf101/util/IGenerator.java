@@ -30,8 +30,7 @@ public interface IGenerator<T> {
 	 *
 	 * @param n The number of objects to generate.
 	 * @return A list of objects, with the property that for any two objects a,b in
-	 *         the collection a.equals(b).
-	 *
+	 * the collection a.equals(b).
 	 */
 	List<T> generateEquals(int n);
 
@@ -41,8 +40,7 @@ public interface IGenerator<T> {
 	 * @param r A random generator
 	 * @param n The number of objects to generate.
 	 * @return A list of objects, with the property that for any two objects a,b in
-	 *         the collection a.equals(b).
-	 *
+	 * the collection a.equals(b).
 	 */
 	List<T> generateEquals(Random r, int n);
 }

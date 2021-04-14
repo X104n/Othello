@@ -15,42 +15,42 @@ public class TerminalMenu {
 	public TerminalMenu() {
 		// TODO Auto-generated constructor stub
 	}
-	
+
 	public static Game selectGame(ArrayList<Player> players) {
 		System.out.println("Which game do you wish to play?");
 		System.out.println("Press 1 for TicTacToe and 2 for Connect 4");
 		int choice = TerminalInput.readInt(new Scanner(System.in));
 		Game game;
 		switch (choice) {
-		case 1:
-			game = new TicTacToe(new TerminalGraphics(),players.get(0),players.get(1));
-			break;
+			case 1:
+				game = new TicTacToe(new TerminalGraphics(), players.get(0), players.get(1));
+				break;
 
-		case 2:
-			game = new ConnectFour(new TerminalGraphics(),players.get(0),players.get(1));
-			break;
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + choice);
+			case 2:
+				game = new ConnectFour(new TerminalGraphics(), players.get(0), players.get(1));
+				break;
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + choice);
 		}
 		return game;
 	}
 
 	public static ArrayList<Player> getPlayers() {
 		System.out.println("Player 1, what is your name?");
-		ArrayList<Player> players = new ArrayList<Player>();
+		ArrayList<Player> players = new ArrayList<>();
 		players.add(new ConsolePlayer('X'));
 		System.out.println("(1) Two players or \n(2) play against computer?");
 		int multiplayerChoice = TerminalInput.readInt(new Scanner(System.in));
 		switch (multiplayerChoice) {
-		case 1:
-			players.add(new ConsolePlayer('O'));
-			break;
-		case 2:
-			//players.add(new MiniMaxPlayer('O', 5));
-			players.add(new DumbPlayer('O'));
-			break;
-		default:
-			throw new IllegalArgumentException("Unexpected value: " + multiplayerChoice);
+			case 1:
+				players.add(new ConsolePlayer('O'));
+				break;
+			case 2:
+				//players.add(new MiniMaxPlayer('O', 5));
+				players.add(new DumbPlayer('O'));
+				break;
+			default:
+				throw new IllegalArgumentException("Unexpected value: " + multiplayerChoice);
 		}
 		return players;
 	}
@@ -60,9 +60,6 @@ public class TerminalMenu {
 		Scanner sc = new Scanner(System.in);
 		String choice = sc.next();
 		sc.close();
-		if( choice.startsWith("y"))
-			return false;
-		else
-			return true;
+		return !choice.startsWith("y");
 	}
 }

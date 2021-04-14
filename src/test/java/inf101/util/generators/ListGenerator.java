@@ -23,7 +23,7 @@ public class ListGenerator<T> extends AbstractGenerator<List<T>> {
 	}
 
 	public ListGenerator(IGenerator<T> elementGenerator, int maxLength) {
-		if (maxLength < 1) {
+		if(maxLength < 1) {
 			throw new IllegalArgumentException("Length must be 1 or greater");
 		}
 
@@ -36,7 +36,7 @@ public class ListGenerator<T> extends AbstractGenerator<List<T>> {
 		int l = lengthGenerator.generate(r);
 		List<T> result = new ArrayList<>(l);
 
-		for (int i = 0; i < l; i++) {
+		for(int i = 0; i < l; i++) {
 			result.add(elementGenerator.generate(r));
 		}
 		return result;

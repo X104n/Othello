@@ -12,14 +12,13 @@ import javax.swing.JPanel;
  * A class for clickable panels with x,y-coordinates
  * This is basically a Jpanel with a mouse listener and a color.
  * When this panel is clicked a call to the MouseListener will be made
- * 
- * @author Anna Eilertsen - anna.eilertsen@uib.no 
- * @author Martin Vatshelle - martin.vatshelle@uib.no
  *
+ * @author Anna Eilertsen - anna.eilertsen@uib.no
+ * @author Martin Vatshelle - martin.vatshelle@uib.no
  */
-public class GamePanel extends JPanel{
+public class GamePanel extends JPanel {
 	private Color color;
-	
+
 	private static final long serialVersionUID = 1L;
 
 	public GamePanel(MouseListener listener) {
@@ -29,8 +28,8 @@ public class GamePanel extends JPanel{
 		setEnabled(true);
 		setBorder(BorderFactory.createLineBorder(Color.GRAY));
 		//setBorder(new RoundedBorder(20)); //10 is the radius
-		//add mouse listener which calls click method 
-		addMouseListener(listener); 
+		//add mouse listener which calls click method
+		addMouseListener(listener);
 	}
 
 //	@Override
@@ -44,15 +43,15 @@ public class GamePanel extends JPanel{
 		if(color != null) {
 			g.setColor(color);
 			Dimension dim = this.getSize();
-			g.fillOval(0,0,dim.width,dim.height);
+			g.fillOval(0, 0, dim.width, dim.height);
 		}
 	}
-	
+
 	/**
 	 * Sets the color of this panel.
-	 * When the updateUI function is called the color 
+	 * When the updateUI function is called the color
 	 * will be changed to this color
-	 * 
+	 *
 	 * @param color
 	 */
 	public void setColor(Color color) {

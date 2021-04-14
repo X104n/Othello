@@ -1,58 +1,57 @@
 package inf101.grid;
 
-import inf101.GetStarted;
-import inf101.util.IGenerator;
-import inf101.util.generators.GridGenerator;
-import inf101.util.generators.LocationGenerator;
-import inf101.util.generators.StringGenerator;
-
-import org.junit.jupiter.api.Test;
-
-import java.util.ArrayList;
-import java.util.function.Function;
-
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertThrows;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import java.util.ArrayList;
+import java.util.function.Function;
+
+import inf101.GetStarted;
+import inf101.util.IGenerator;
+import inf101.util.generators.GridGenerator;
+import inf101.util.generators.LocationGenerator;
+import inf101.util.generators.StringGenerator;
+import org.junit.jupiter.api.Test;
+
 public class GridTest {
     private static final int N = 10000;
 
-    private IGenerator<String> strGen = new StringGenerator();
-    private IGenerator<IGrid<String>> gridGen = new GridGenerator<String>(strGen);
+    private final IGenerator<String> strGen = new StringGenerator();
+    private final IGenerator<IGrid<String>> gridGen = new GridGenerator<>(strGen);
 
     @Test
     public void canConstruct() {
-    	Grid<Integer> grid = new Grid<Integer>(3, 4);
-    	for(Location loc : grid.locations()) {
-    		assertEquals(null, grid.get(loc));
-    	}
-    	Grid<String> grid2 = new Grid<String>(3, 4,"Value");
-    	for(Location loc : grid2.locations()) {
-    		assertEquals("Value", grid2.get(loc));
-    	}
+        Grid<Integer> grid = new Grid<>(3, 4);
+        for(Location loc : grid.locations()) {
+            assertEquals(null, grid.get(loc));
+        }
+        Grid<String> grid2 = new Grid<>(3, 4, "Value");
+        for(Location loc : grid2.locations()) {
+            assertEquals("Value", grid2.get(loc));
+        }
     }
- 
+
     public <T> void fillProperty1(IGrid<T> grid, T val) {
         grid.fill(val);
-        for (Location l : grid.locations()) {
+        for(Location l : grid.locations()) {
             assertEquals(val, grid.get(l));
         }
     }
 
-    public <T> void fillProperty2(IGrid<T> grid, Function<Location, T> fun) {
+    public <T> void fillProperty2(IGrid<T> grid, Function<Location,T> fun) {
         grid.fill(fun);
-        for (Location l : grid.locations()) {
+        for(Location l : grid.locations()) {
             assertEquals(fun.apply(l), grid.get(l));
         }
     }
 
-   
+
     @Test
     public void fillTest1() {
-    	assertTrue(GetStarted.hasRead);
-        for (int i = 0; i < N / 10; i++) {
+        assertTrue(GetStarted.hasRead);
+        for(int i = 0; i < N / 10; i++) {
             IGrid<String> grid = gridGen.generate();
 
             String s = strGen.generate();
@@ -62,8 +61,8 @@ public class GridTest {
 
     @Test
     public void fillTest2() {
-    	assertTrue(GetStarted.hasRead);
-        for (int i = 0; i < N / 10; i++) {
+        assertTrue(GetStarted.hasRead);
+        for(int i = 0; i < N / 10; i++) {
             IGrid<String> grid = gridGen.generate();
 
             fillProperty2(grid, (l) -> l.toString());
@@ -74,7 +73,7 @@ public class GridTest {
      * A set on (x1,y1) doesn't affect a get on a different (x2,y2)
      */
     public <T> void setGetIndependentProperty(IGrid<T> grid, Location l1, Location l2, T val) {
-        if (!l1.equals(l2)) {
+        if(!l1.equals(l2)) {
             T s = grid.get(l2);
             grid.set(l1, val);
             assertEquals(s, grid.get(l2));
@@ -83,12 +82,12 @@ public class GridTest {
 
     @Test
     public void setGetIndependentTest() {
-    	assertTrue(GetStarted.hasRead);
-        for (int j = 0; j < 10; j++) {
+        assertTrue(GetStarted.hasRead);
+        for(int j = 0; j < 10; j++) {
             IGrid<String> grid = gridGen.generate();
             IGenerator<Location> lGen = new LocationGenerator(grid);
 
-            for (int i = 0; i < N; i++) {
+            for(int i = 0; i < N; i++) {
                 Location l1 = lGen.generate();
                 Location l2 = lGen.generate();
                 String s = strGen.generate();
@@ -111,12 +110,12 @@ public class GridTest {
      */
     @Test
     public void setGetTest() {
-    	assertTrue(GetStarted.hasRead);
-        for (int j = 0; j < 10; j++) {
+        assertTrue(GetStarted.hasRead);
+        for(int j = 0; j < 10; j++) {
             IGrid<String> grid = gridGen.generate();
             IGenerator<Location> lGen = new LocationGenerator(grid);
 
-            for (int i = 0; i < N; i++) {
+            for(int i = 0; i < N; i++) {
                 Location l = lGen.generate();
                 String s = strGen.generate();
 
@@ -127,39 +126,39 @@ public class GridTest {
 
     @Test
     public void uniqueLocations() {
-    	assertTrue(GetStarted.hasRead);
-        for (int j = 0; j < 10; j++) {
+        assertTrue(GetStarted.hasRead);
+        for(int j = 0; j < 10; j++) {
             IGrid<String> grid = gridGen.generate();
-            ArrayList<Location> found = new ArrayList<Location>();
+            ArrayList<Location> found = new ArrayList<>();
             for(Location loc : grid.locations()) {
-            	assertFalse(found.contains(loc),"The location "+loc+" appeared twice in locations()");
-            	found.add(loc);
+                assertFalse(found.contains(loc), "The location " + loc + " appeared twice in locations()");
+                found.add(loc);
             }
-        }    
-	}
-    
+        }
+    }
+
     @Test
     public void testInvalidLocations() {
-        for (int j = 0; j < 10; j++) {
+        for(int j = 0; j < 10; j++) {
             Grid<String> grid = (Grid<String>) gridGen.generate();
             assertFalse(grid.isOnGrid(new Location(-1, 3)));
             assertFalse(grid.isOnGrid(new Location(2, -2)));
             assertFalse(grid.isOnGrid(new Location(grid.numRows(), 0)));
             assertFalse(grid.isOnGrid(new Location(0, grid.numColumns())));
             assertFalse(grid.isOnGrid(null));
-            assertThrows(IndexOutOfBoundsException.class, ()-> grid.checkLocation(new Location(-1,2)));
+            assertThrows(IndexOutOfBoundsException.class, () -> grid.checkLocation(new Location(-1, 2)));
         }
     }
 
     @Test
     public void testCopy() {
-        for (int j = 0; j < 10; j++) {
+        for(int j = 0; j < 10; j++) {
             Grid<String> grid = (Grid<String>) gridGen.generate();
             IGrid<String> newGrid = grid.copy();
             for(Location loc : grid.locations()) {
-            	assertEquals(grid.get(loc), newGrid.get(loc));
+                assertEquals(grid.get(loc), newGrid.get(loc));
             }
         }
-    	
+
     }
 }
