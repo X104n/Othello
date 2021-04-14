@@ -35,6 +35,7 @@ public class MiniMaxPlayer extends AbstractPlayer {
 
 	@Override
 	public Location getMove(Game game) {
+		System.err.println(this+" is moving");
 		Strategy best = bestMove(game,depth);
 		return best.move;
 	}

@@ -6,7 +6,7 @@ ferdigheter som ikke er så lette å teste på eksamen. Se under angående
 karakter.
 
 ### Innlevering
-Oppgaven skal leveres inn via GitLab **før fredag 12. mars kl. 16:00**. 
+Oppgaven skal leveres inn via GitLab **før fredag 30. april kl. 16:00**. 
 
 Hvis du får mindre enn 6 poeng på én eller begge av semesteroppgavene **får du ikke ta eksamen**.  
 

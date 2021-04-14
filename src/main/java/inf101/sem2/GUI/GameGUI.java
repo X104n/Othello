@@ -15,11 +15,9 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 
 import inf101.grid.Location;
-import inf101.sem2.game.Game;
 import inf101.sem2.game.GameBoard;
 import inf101.sem2.game.Graphics;
 import inf101.sem2.player.Player;
-
 
 /**
  * This class combines two buttons with a MNKGameGUI in one JFrame
@@ -40,15 +38,12 @@ public class GameGUI implements ActionListener, Graphics{
 	public boolean wantRestart=false;
 	public boolean ended = false;
 	
-	
-
 	public GameGUI(Iterable<Player> players) {
 		this.players = players;
 		JPanel buttons = createButtonPanel();
 		statusMessage = new JLabel();
 		statusMessage.setPreferredSize(new Dimension(300,50));
-		statusMessage.setText("Welcome!");
-		
+		statusMessage.setText("Welcome!");		
 
 		//make new main window for the game
 		frame = new JFrame(); 
