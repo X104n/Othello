@@ -18,9 +18,11 @@ import javax.swing.JPanel;
 import inf101.sem2.game.ConnectFour;
 import inf101.sem2.game.Game;
 import inf101.sem2.game.TicTacToe;
+import inf101.sem2.player.GameEndedException;
 import inf101.sem2.player.GuiPlayer;
 import inf101.sem2.player.MiniMaxPlayer;
 import inf101.sem2.player.Player;
+import inf101.sem2.player.RestartException;
 
 /**
  * This class is a Game menu which lets you choose which game to play.
@@ -33,8 +35,9 @@ public class MainMenu implements ActionListener{
 	private JButton playConnectFourButton; //Button to start new 4 in row game
 	private JButton playTicTacToeButton; //Button to start new TicTacToe game
 	private JFrame frame;
-	private JFrame gameBoard;
 	public Game game;
+	public GameGUI gui;
+	boolean start = false;
 
 	public MainMenu() {
 		//make new main window for the game
@@ -79,8 +82,9 @@ public class MainMenu implements ActionListener{
 			System.err.println("Game is in progress, only one game at the time is possible.");
 			return;
 		}
+
 		Iterable<Player> players = getPlayers();
-		GameGUI graphics = new GameGUI();
+		GameGUI graphics = new GameGUI(players);
 		
 		if(e.getSource() == playConnectFourButton) {
 			game = new ConnectFour(graphics,players);
@@ -88,8 +92,16 @@ public class MainMenu implements ActionListener{
 		if(e.getSource() == playTicTacToeButton) {
 			game = new TicTacToe(graphics,players);
 		}
-		
-		graphics.setGame(new MNKGameGUI(game.getGameBoard(),players));
+		if(game==null) {
+			System.err.println("Button not recognized, no game created.");
+		}
+		else {
+			gui = graphics;
+			gui.ended = false;
+			gui.wantRestart = false;
+			start = true;
+			graphics.display(game.getGameBoard());
+		}
 	}
 
 	/**
@@ -135,6 +147,41 @@ public class MainMenu implements ActionListener{
 			System.out.println("Received " + s);
 		}
 		return s.equals(possibilities[0]);
+	}
+	
+	public void run() {
+		while(true) {
+			if(gui != null && gui.ended) {
+				game = null;
+				start = false;
+			}
+
+			if(gui != null && gui.wantRestart) {
+				game.restart();
+				gui.wantRestart = false;
+				start = true;
+			}
+
+			if(start) {
+				try {
+					System.err.println("Starting the game");
+					start = false;
+					game.run();
+				} catch (RestartException e) {
+					System.err.println("Restarting the game");
+				} catch (GameEndedException e) {
+					System.err.println("Game ended");
+				}
+			}
+			else{
+				try {
+					Thread.sleep(100);
+				} catch (InterruptedException e) {
+					e.printStackTrace();
+				}
+			}
+
+		}
 	}
 }
 

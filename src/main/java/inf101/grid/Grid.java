@@ -1,12 +1,14 @@
 package inf101.grid;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.Iterator;
 import java.util.List;
 import java.util.function.Function;
 
 /** A Grid contains a values in a 2D rectangular layout. */
 public class Grid<T> implements IGrid<T> {
+	private List<T> list;
 	private final List<T> cells;
 	private final int columns;
 	private final int rows;
@@ -134,9 +136,7 @@ public class Grid<T> implements IGrid<T> {
 
 	@Override
 	public void fill(T element) {
-		for (Location loc : this.locations()) {
-			set(loc,element);
-		}
+		Collections.fill(cells, element);
 	}
 
 
@@ -172,5 +172,9 @@ public class Grid<T> implements IGrid<T> {
 		}
 		
 		throw new IllegalArgumentException("Can not find element.");
+	}
+	
+	public void clear() {
+		Collections.fill(cells, null);
 	}
 }

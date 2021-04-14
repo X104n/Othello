@@ -80,4 +80,9 @@ public class ConnectFour extends Game {
 		game.run();
 	}
 
+	@Override
+	public String getName() {
+		return "Connect Four";
+	}
+
 }

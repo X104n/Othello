@@ -27,6 +27,16 @@ public class TerminalInput {
 	}
 
 	/**
+	 * Reads the next token from a Scanner();
+	 * @param sc
+	 * @return
+	 */
+	public static String readString(Scanner sc) {
+		Function<String,String> f = (x)->x;
+		return read(sc,f,"Token");
+	}
+
+	/**
 	 * This method reads a name and makes sure the name read is not empty.
 	 * The name parameter could e.g. be "Player name" and would be used to
 	 * print an error message when invalid input is given.

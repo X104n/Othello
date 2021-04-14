@@ -12,9 +12,12 @@ import java.util.Iterator;
  */
 public class PlayerList implements Iterable<Player> {
 
-	ArrayList<Player> players;
-	int currentIndex;
+	private ArrayList<Player> players;
+	private int currentIndex;
 	
+	/**
+	 * Creates a new empty PlayerList
+	 */
 	public PlayerList() {
 		players = new ArrayList<Player>();
 		currentIndex = 0;
@@ -102,5 +105,9 @@ public class PlayerList implements Iterable<Player> {
 		if(index<0)
 			throw new IllegalArgumentException("This player is not in the list");
 		currentIndex = index;
+	}
+
+	public void restart() {
+		currentIndex = 0;
 	}
 }

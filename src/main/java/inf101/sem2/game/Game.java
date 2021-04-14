@@ -26,7 +26,7 @@ public abstract class Game {
 	
 	//keeps track of whose turn it is
 	protected PlayerList players;
-	
+		
 	/*************** Constructors ****************/
 	public Game(GameBoard board, Graphics graphics){
 		this.board = board;
@@ -40,6 +40,8 @@ public abstract class Game {
 			addPlayer(p);
 		}
 	}
+
+	/***************   Methods   *****************/
 
 	/**
 	 * This is the main game loop making sure each player gets to place one piece each turn.
@@ -174,5 +176,13 @@ public abstract class Game {
 
 	public Graphics getGraphics() {
 		return graphics;
+	}
+
+	public abstract String getName();
+
+	public void restart() {
+		board.clear();
+		players.restart();
+		graphics.display(board);
 	}
 }

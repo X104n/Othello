@@ -2,6 +2,7 @@ package inf101.sem2.GUI;
 
 import java.awt.Color;
 import java.awt.Component;
+import java.awt.Dimension;
 import java.awt.GridLayout;
 import java.awt.event.MouseAdapter;
 import java.awt.event.MouseEvent;
@@ -29,10 +30,10 @@ import inf101.sem2.player.Player;
  * @author Martin Vatshelle - martin.vatshelle@uib.no
  *
  */
-public class ClickableGrid extends MouseAdapter {
+public class ClickableGrid extends JPanel {
 
-	
-	private JPanel pane;
+	private static final long serialVersionUID = 8755882090377973497L;
+	private MouseAdapter adapter;
 	private Grid<GamePanel> clickablePanels; //clickable grid for user input
 	private GameBoard board;
 	private Location lastClick=null;
@@ -42,22 +43,27 @@ public class ClickableGrid extends MouseAdapter {
 
 	public ClickableGrid(GameBoard board,Iterable<Player> players, List<Color> colors) {
 		this.board = board;
+		adapter = new ClickableGridListener();
+
 		//assign colors to the players
 		setColors(players, colors);
 		
 		//create clickable panels
-		pane = new JPanel();
 		int rows = board.numRows();
 		int cols = board.numColumns();
 		clickablePanels = new Grid<GamePanel>(rows, cols);
-		pane.setLayout(new GridLayout(rows, cols));
+		setLayout(new GridLayout(rows, cols));
 		makeClickablePanels();
-		
+
+
 		//set gui options
-		pane.setRequestFocusEnabled(true);
-		pane.requestFocus();
-		pane.setVisible(true);
-		pane.validate();	
+		setPreferredSize(new Dimension(100*board.numRows(), board.numColumns()));
+		setMinimumSize(new Dimension(100*board.numRows(), board.numColumns()));
+		setRequestFocusEnabled(true);
+		requestFocus();
+		setVisible(true);
+		validate();	
+
 	}
 	
 
@@ -80,12 +86,12 @@ public class ClickableGrid extends MouseAdapter {
 	/**
 	 * Should be called after a click to update the UI to reflect the current game state
 	 */
-	public void updateGui(GameBoard board) {
+	public void updateGui() {
 		for(Location loc : board.locations()) {
 			Color color = getColor(board.get(loc));
 			clickablePanels.get(loc).setColor(color);
 		}
-		pane.updateUI();
+		validate();
 	}
 
 	/**
@@ -107,25 +113,11 @@ public class ClickableGrid extends MouseAdapter {
 	 */
 	private void makeClickablePanels() {
 		for(Location loc : board.locations()) {
-			GamePanel pan = new GamePanel(this);
+			GamePanel pan = new GamePanel(adapter);
 			clickablePanels.set(loc, pan);
-			pane.add(pan);
+			add(pan);
 		}
-	}
-
-	/**
-	 * This is what happens when the mouse clicks on one of the squares of the grid.
-	 */
-	public void mousePressed(MouseEvent me){
-		if(clickablePanels.contains(me.getSource())) {
-			lastClick = clickablePanels.locationOf(me.getSource());
-		}
-		else
-			System.err.println("Clicked on wrong thing: "+me.getSource());
-	}
-
-	public Component getPanel() {
-		return pane;
+		updateGui();
 	}
 	
 	public Location getLastClick() {
@@ -135,4 +127,20 @@ public class ClickableGrid extends MouseAdapter {
 	public void clearLastClick() {
 		lastClick = null;
 	}
+
+	class ClickableGridListener extends MouseAdapter{		
+
+		//This is what happens when the mouse clicks on one of the squares of the grid.
+		@Override
+		public void mousePressed(MouseEvent me){
+			if(clickablePanels.contains(me.getSource())) {
+				lastClick = clickablePanels.locationOf(me.getSource());
+				System.err.println("Click detected on "+lastClick);
+			}
+			else
+				System.err.println("Clicked on wrong thing: "+me.getSource());
+		}
+
+	}
 }
+

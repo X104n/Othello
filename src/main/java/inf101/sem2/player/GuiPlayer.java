@@ -42,6 +42,7 @@ public class GuiPlayer extends AbstractPlayer {
 		while(true) {
 			nextMove = gui.getMove();
 			if(hasValidMove(game)) {
+				System.err.println("Gui player moves "+nextMove);
 				return nextMove;
 			}
 			else {
@@ -50,6 +51,14 @@ public class GuiPlayer extends AbstractPlayer {
 				} catch (InterruptedException e) {
 					System.err.println("Sleep interrupted");
 				}
+			}
+			
+			if(gui.wantRestart) {
+				throw new RestartException();
+			}
+			
+			if(gui.ended) {
+				throw new GameEndedException();
 			}
 		}
 	}

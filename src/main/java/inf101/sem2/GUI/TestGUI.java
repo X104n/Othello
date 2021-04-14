@@ -16,9 +16,10 @@ public class TestGUI {
 		ArrayList<Player> players = new ArrayList<Player>();
 		players.add(me);
 		players.add(computer);
-		GameGUI graphics = new GameGUI();
+		GameGUI graphics = new GameGUI(players);
 		Game game = new TicTacToe(graphics,players);
-		graphics.setGame(new MNKGameGUI(game.getGameBoard(), players));
+		graphics.setName("Tic Tac Toe");
+		graphics.display(game.getGameBoard());
 		game.run();
 	}
 

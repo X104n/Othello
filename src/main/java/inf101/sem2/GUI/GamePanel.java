@@ -24,6 +24,7 @@ public class GamePanel extends JPanel{
 
 	public GamePanel(MouseListener listener) {
 		this.color = null;
+		setPreferredSize(new Dimension(3, 3));
 		//use methods in JPanel to set initial style
 		setEnabled(true);
 		setBorder(BorderFactory.createLineBorder(Color.GRAY));
@@ -32,10 +33,10 @@ public class GamePanel extends JPanel{
 		addMouseListener(listener); 
 	}
 
-	@Override
-	public Dimension getPreferredSize() {
-		return new Dimension(3, 3);
-	}
+//	@Override
+//	public Dimension getPreferredSize() {
+//		return new Dimension(3, 3);
+//	}
 
 	@Override
 	protected void paintComponent(Graphics g) {

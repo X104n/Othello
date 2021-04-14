@@ -120,7 +120,6 @@ public class GameBoard extends Grid<Player>{
 		return true;
 	}
 	
-	
 	/**
 	 * Makes a shallow copy of the board
 	 */

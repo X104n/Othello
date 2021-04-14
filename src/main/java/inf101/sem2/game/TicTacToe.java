@@ -63,4 +63,9 @@ public class TicTacToe extends Game{
 	public boolean isWinner(Player p) {
 		return board.countNumInRow(p)>=3;
 	}
+
+	@Override
+	public String getName() {
+		return "Tic Tac Toe";
+	}
 }

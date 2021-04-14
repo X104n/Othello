@@ -1,11 +1,13 @@
-# [Semesteroppgave 2: Othello]
+# Semesteroppgave 2: Othello
+
+### Bekreft at du har lest viktig informasjon
+
+Les [praktiskinfo.md](information/praktiskinfo.md) og åpne java filen `inf101.GetStarted.java` for å bekrefte at du har lest informasjonen. JUnit testene vil ikke virke før du har gjort dette.
+
+`add-commit-push`
 
 
-* **README**
-* [Oppgavetekst](praktiskinfo.md)
-
-
-**Innleveringsfrist:** Hele oppgaven skal være ferdig og levert via ditt private gitlab-repositorie til **Fredag 30. april kl. 1600**.  
+**Innleveringsfrist:** Hele oppgaven skal være ferdig og levert via ditt private gitlab-repositorie til **Fredag 30. april kl. 16:00**.  
 
 ### Innlevering 
  Du finner koden din i repositoriet ved å følge linken på denne siden:
@@ -34,14 +36,14 @@ Læringsmål:
 - bruke objektorienterte prinsipper som polymorfisme, arv og abstrakte klasser
 - ryddig og lesbar kodestil som gjør vedlikehold/utvidelse av koden enklere.
 
-En klassediagram over klassene i dette løsningsforslaget finner dere på Mitt UiB.
+Et klassediagram over klassene i dette prosjektet finner dere på Mitt UiB.
 
 Pakken grid - Så å si identisk til den som ble brukt i Semesteroppgave 1.
 
 Pakken player - Flere typer Player objekter er implementert GuiPlayer, ConsolePlayer, MiniMaxPlayer DumbPlayer og RandomPlayer. 
 Alle disse Spillerene kan brukes på begge spillene (og potensielt flere spill).
 
-Pakken game kjører sipllet ved en "game loop" og ber de forskjellige spillerne om input.
+Pakken game kjører spillet ved en "game loop" og ber de forskjellige spillerne om input.
 Hvilke type spiller og hvilken type grafikk det er skal ikke være viktig, man kan bytte ut begge deler.
 
 Pakken GUI - det som trengs for å få grafisk brukergrensesnitt (untatt GuiPlayer)
@@ -51,9 +53,8 @@ Pakken Terminal - det som trengs for å spille fra terminal (untatt ConsolePlaye
 ### Bruk
 TODO:
 
-## Oppgaver
 
-### Oppgave 1 - Designanalyse
+## Oppgave 1 - Designanalyse
 I denne semesteroppgaven har vi allerede laget et fungerende spill for dere.
 Dere skal kjøre spillet, se på klassediagrammet og se på koden slik at dere forstår hvordan koden fungerer.
 Vi har allerede brukt noen forelesninger på å forstå hvordan denne koden fungerer.
@@ -66,7 +67,7 @@ Skriv en analyse av designet som er valgt for den eksisterende koden i prosjekte
 - Hvilke andre spill (eller utvidelser) vil det være enkelt å legge til i dette prosjektet, og hvilke spill vil by på utfordringer?
 - Hvor er [SOLID](https://en.wikipedia.org/wiki/SOLID) prinsippene brukt/ikke brukt 
 
-### Oppgave 2 - Plan og klassediagram
+## Oppgave 2 - Plan og klassediagram
 
 Skriv en kort plan for hva du må gjøre for å implementere spillert Othello.
 Her bør du skrive opp de klassene du trenger å lage og hvorfor.
@@ -75,7 +76,7 @@ Tegn et klassediagram, dere skal få utlevert et klassediagram av den eksisteren
 Dere kan godt gå tilbake til planen og gjøre endringer hvis dere oppdager at det trengs.
 Men det kan være en fordel om dere lager en ordentlig plan før dere begynner slik at dere ikke gjør mer koding enn nødvendig.
 
-### Oppgave 3 - Implementer Othello
+## Oppgave 3 - Implementer Othello
 Utvid funksjonaliteten til prosjektet slik at det også går an å spille Othello.
 Spillet skal kunne spilles både fra terminal og fra GUI med flere valg av spillere.
 
