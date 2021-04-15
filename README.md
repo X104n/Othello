@@ -65,10 +65,12 @@ Pakken gui er litt vanskelig å forstå og ikke en viktig del av programmet, de 
 
 Skriv en analyse av designet som er valgt for den eksisterende koden i prosjektet. Fokuser på hvilke objektorienterte prinsipper som er brukt. Hvis du ser mulige forbedringer er det veldig positivt om du skriver om dette. Svar på følgende spørsmål:
 
-- Hvilke klasser er viktige?
+- Nevn noen viktige klasser og hvorfor vi trenger disse klassene?
 - Hvor brukes abstraction, encapsulation, inheritance og polymorphism.
 - Hvilke andre spill (eller utvidelser) vil det være enkelt å legge til i dette prosjektet, og hvilke spill vil by på utfordringer?
-- Hvor er [SOLID](https://en.wikipedia.org/wiki/SOLID) prinsippene brukt/ikke brukt 
+- Hvor er [SOLID](https://en.wikipedia.org/wiki/SOLID) prinsippene brukt/ikke brukt.
+Merk at SOLID prinsippene ikke er pensum før i INF112 så vi forventer ikke så mye av dere her,
+men de av dere som ønsker å få 15/15 må vise at dere har prøvd litt på dette.
 
 ## Oppgave 2 - Plan og klassediagram
 

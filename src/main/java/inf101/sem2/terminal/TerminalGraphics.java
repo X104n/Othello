@@ -3,6 +3,12 @@ package inf101.sem2.terminal;
 import inf101.sem2.game.GameBoard;
 import inf101.sem2.game.Graphics;
 
+/**
+ * Simple Graphics that prints to the screen
+ * 
+ * @author Martin Vatshelle - martin.vatshelle@uib.no
+ *
+ */
 public class TerminalGraphics implements Graphics {
 
 	@Override

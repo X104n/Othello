@@ -3,18 +3,14 @@ package inf101.sem2.terminal;
 import java.util.ArrayList;
 import java.util.Scanner;
 
-import inf101.sem2.game.ConnectFour;
 import inf101.sem2.game.Game;
+import inf101.sem2.game.ConnectFour;
 import inf101.sem2.game.TicTacToe;
 import inf101.sem2.player.ConsolePlayer;
 import inf101.sem2.player.DumbPlayer;
 import inf101.sem2.player.Player;
 
 public class TerminalMenu {
-
-	public TerminalMenu() {
-		// TODO Auto-generated constructor stub
-	}
 
 	public static Game selectGame(ArrayList<Player> players) {
 		System.out.println("Which game do you wish to play?");

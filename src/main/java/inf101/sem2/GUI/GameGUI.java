@@ -21,8 +21,9 @@ import inf101.sem2.game.Graphics;
 import inf101.sem2.player.Player;
 
 /**
- * This class combines two buttons with a MNKGameGUI in one JFrame
- * The buttons are used to select type of game to play.
+ * This class combines two buttons with a Clickable grid in one JFrame
+ * The buttons are used to end or restart the game while the grid is used to 
+ * display the state of the game and for the user to select next move.
  *
  * @author Martin Vatshelle - martin.vatshelle@uib.no
  */
@@ -37,8 +38,6 @@ public class GameGUI implements ActionListener, Graphics {
 
 	public boolean wantRestart = false;
 	public boolean ended = false;
-	
-
 
 	public GameGUI(Iterable<Player> players) {
 		this.players = players;
@@ -126,6 +125,7 @@ public class GameGUI implements ActionListener, Graphics {
 
 	@Override
 	public void display(GameBoard board) {
+		//remake the game board in case the number of rows or columns has changed
 		removeClickablePanels();
 		this.board = new ClickableGrid(board, players, getColors());
 		frame.add("Center", this.board);
@@ -133,6 +133,10 @@ public class GameGUI implements ActionListener, Graphics {
 		drawGameBoard();
 	}
 
+	/**
+	 * This method reports the last grid cell that was clicked by the user.
+	 * @return
+	 */
 	public Location getMove() {
 		return board.getLastClick();
 	}

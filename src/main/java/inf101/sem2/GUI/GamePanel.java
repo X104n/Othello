@@ -9,9 +9,10 @@ import javax.swing.BorderFactory;
 import javax.swing.JPanel;
 
 /**
- * A class for clickable panels with x,y-coordinates
- * This is basically a Jpanel with a mouse listener and a color.
+ * A class for clickable panels
+ * This is basically a Button with some special design that changes.
  * When this panel is clicked a call to the MouseListener will be made
+ * which then changes the color.
  *
  * @author Anna Eilertsen - anna.eilertsen@uib.no
  * @author Martin Vatshelle - martin.vatshelle@uib.no
@@ -31,11 +32,6 @@ public class GamePanel extends JPanel {
 		//add mouse listener which calls click method
 		addMouseListener(listener);
 	}
-
-//	@Override
-//	public Dimension getPreferredSize() {
-//		return new Dimension(3, 3);
-//	}
 
 	@Override
 	protected void paintComponent(Graphics g) {

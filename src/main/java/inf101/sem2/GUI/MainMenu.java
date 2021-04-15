@@ -59,13 +59,18 @@ public class MainMenu implements ActionListener {
 	}
 
 
+	/**
+	 * Adds buttons with a fixed style and add it to the panel
+	 * @param buttons - The JPanel containing all the buttons.
+	 * @param name - The name to be displayed on the button.
+	 * @return
+	 */
 	JButton addButton(JPanel buttons, String name) {
 		JButton button = new JButton();
 		button.setText(name);
 		button.setFont(new Font("Arial", Font.PLAIN, 40));
 		button.addActionListener(this);
 		button.setAlignmentX(Component.CENTER_ALIGNMENT);
-		//button.setBorder(BorderFactory.createRaisedSoftBevelBorder());
 		button.setBorder(new RoundedBorder(20)); //10 is the radius
 		buttons.add(Box.createRigidArea(new Dimension(20, 20)));
 		buttons.add(button);
@@ -147,6 +152,10 @@ public class MainMenu implements ActionListener {
 		return s.equals(possibilities[0]);
 	}
 
+	/**
+	 * This method runs an infinite loop checking if a button
+	 * has been clicked.
+	 */
 	public void run() {
 		while(true) {
 			if(gui != null && gui.ended) {
