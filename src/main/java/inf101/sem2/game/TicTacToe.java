@@ -1,10 +1,6 @@
 package inf101.sem2.game;
 
-import inf101.grid.Location;
-import inf101.sem2.player.ConsolePlayer;
-import inf101.sem2.player.MiniMaxPlayer;
 import inf101.sem2.player.Player;
-import inf101.sem2.terminal.TerminalGraphics;
 
 public class TicTacToe extends Game {
 
@@ -33,27 +29,13 @@ public class TicTacToe extends Game {
 
 		return board.isFull();
 	}
-
-	public static void main(String[] args) {
-		Player player1 = new ConsolePlayer('X');
-		Player player2 = new MiniMaxPlayer('O', 4);
-		Game game = new TicTacToe(new TerminalGraphics(), player1, player2);
-		game.run();
-	}
-
-	@Override
-	public boolean canPlace(GameBoard board, Location loc, Player p) {
-		return board.canPlace(loc);
-	}
-
-
+	
 	@Override
 	public TicTacToe copy() {
 		TicTacToe game = new TicTacToe(graphics);
 		copyTo(game);
 		return game;
 	}
-
 
 	@Override
 	public boolean isWinner(Player p) {

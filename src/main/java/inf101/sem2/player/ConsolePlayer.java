@@ -74,7 +74,7 @@ public class ConsolePlayer extends AbstractPlayer {
 		int col = 0;
 		while(!done) {
 			col = readInt(sc);
-			if(game.canPlace(game.drop(col), this)) {
+			if(game.canPlace(game.drop(col))) {
 				done = true;
 			} else {
 				System.out.println("Can not place there. Try again");

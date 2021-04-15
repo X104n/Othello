@@ -168,13 +168,21 @@ public class Grid<T> implements IGrid<T> {
 		return isOnGrid(from.getNeighbor(dir));
 	}
 
-	public boolean contains(Object source) {
-		return cells.contains(source);
+	public boolean contains(Object obj) {
+		return cells.contains(obj);
 	}
 
-	public Location locationOf(Object source) {
+	/**
+	 * Finds the location containing a given object.
+	 * 
+	 * If no such object has been found, an IllegalArgumentException will be thrown.
+	 *
+	 * @param obj - the Object to find.
+	 * @return A Location loc such that get(loc).equals(obj) is true;
+	 */
+	public Location locationOf(Object obj) {
 		for(Location loc : locations()) {
-			if(get(loc).equals(source)) {
+			if(get(loc).equals(obj)) {
 				return loc;
 			}
 		}

@@ -40,7 +40,7 @@ public class GuiPlayer extends AbstractPlayer {
 		while(true) {
 			nextMove = gui.getMove();
 			if(hasValidMove(game)) {
-				System.err.println("Gui player moves " + nextMove);
+				//System.err.println("Gui player moves " + nextMove);
 				return nextMove;
 			} else {
 				try {
@@ -64,7 +64,7 @@ public class GuiPlayer extends AbstractPlayer {
 		if(nextMove == null) {
 			return false;
 		}
-		return game.canPlace(nextMove, this);
+		return game.canPlace(nextMove);
 	}
 
 	/**

@@ -26,7 +26,7 @@ public abstract class Game {
 	//keeps track of whose turn it is
 	protected PlayerList players;
 
-	/*************** Constructors ****************/
+	/* ************** Constructors ****************/
 	public Game(GameBoard board, Graphics graphics) {
 		this.board = board;
 		this.graphics = graphics;
@@ -75,7 +75,12 @@ public abstract class Game {
 	 */
 	public abstract Game copy();
 
-	public void copyTo(Game target) {
+	/**
+	 * This method fills in a game with the state of a given game.
+	 * The method is there so the implementation of the copy method is simplified in the subclasses.
+	 * @param target
+	 */
+	protected void copyTo(Game target) {
 		target.board = board.copy();
 		target.graphics = graphics;
 		target.players = players.copy();
@@ -87,7 +92,7 @@ public abstract class Game {
 	 * @param loc
 	 */
 	public void makeMove(Location loc) {
-		if(!canPlace(loc, getCurrentPlayer())) {
+		if(!canPlace(loc)) {
 			throw new IllegalArgumentException("Can not make that move");
 		}
 
@@ -95,37 +100,51 @@ public abstract class Game {
 		players.nextPlayer();
 	}
 
+	/**
+	 * Adds a player to the game.
+	 * 
+	 * @param player
+	 */
 	void addPlayer(Player player) {
 		players.add(player);
 	}
 
+	/**
+	 * Gets a copy of the GameBoard.
+	 */
 	public GameBoard getGameBoard() {
-		return board;
+		return board.copy();
 	}
 
 	/**
 	 * The game has rules for where the players can place.
-	 * In both TicTacToe and Connect4 it does not matter who the player is, but it might in other games.
+	 * This method checks if the current player can place on a given location.
 	 * <p>
-	 * This is both used to verify that the move a Player returns is valid
-	 * and for the AI to know where it can place.
+	 * This is both used to verify that the move current player returns is valid
 	 *
 	 * @param loc    - where to place
-	 * @param player - who wants to place
 	 * @return true if it is a valid move, false otherwise.
-	 */
-	public boolean canPlace(Location loc, Player p) {
-		return canPlace(board, loc, p);
-	}
-
+	 */	
 	public boolean canPlace(Location loc) {
-		return canPlace(board, loc, getCurrentPlayer());
+		return board.canPlace(loc);
 	}
 
-	public abstract boolean canPlace(GameBoard board, Location loc, Player p);
-
+	/**
+	 * Checks if the given player has reached the winning condition of the game.
+	 * 
+	 * @param player
+	 * @return
+	 */
 	public abstract boolean isWinner(Player player);
 
+	/**
+	 * This method checks if the given player is a looser.
+	 * In two player games there is normally one winner and one looser or it is a draw.
+	 * But in games with more players this might be different.
+	 * 
+	 * @param player
+	 * @return
+	 */
 	public boolean isLooser(Player player) {
 		for(Player p : players()) {
 			if(p != player && isWinner(p)) {
@@ -170,7 +189,7 @@ public abstract class Game {
 	public List<Location> getPossibleMoves() {
 		ArrayList<Location> moves = new ArrayList<>();
 		for(Location loc : board.locations()) {
-			if(canPlace(board, loc, getCurrentPlayer())) {
+			if(canPlace(loc)) {
 				moves.add(loc);
 			}
 		}

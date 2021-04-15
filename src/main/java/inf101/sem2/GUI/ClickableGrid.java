@@ -52,7 +52,6 @@ public class ClickableGrid extends JPanel {
 		setLayout(new GridLayout(rows, cols));
 		makeClickablePanels();
 
-
 		//set gui options
 		setPreferredSize(new Dimension(100 * board.numRows(), board.numColumns()));
 		setMinimumSize(new Dimension(100 * board.numRows(), board.numColumns()));
@@ -62,7 +61,6 @@ public class ClickableGrid extends JPanel {
 		validate();
 
 	}
-
 
 	/**
 	 * Initializes a Map from Player to Color.
@@ -128,12 +126,11 @@ public class ClickableGrid extends JPanel {
 		public void mousePressed(MouseEvent me) {
 			if(clickablePanels.contains(me.getSource())) {
 				lastClick = clickablePanels.locationOf(me.getSource());
-				System.err.println("Click detected on " + lastClick);
+				//System.err.println("Click detected on " + lastClick);
 			} else {
 				System.err.println("Clicked on wrong thing: " + me.getSource());
 			}
 		}
-
 	}
 }
 

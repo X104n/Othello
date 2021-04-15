@@ -23,6 +23,10 @@ class TestGame {
 		Game game = new TicTacToe(new TerminalGraphics(), p1, p2);
 		game.run();
 		assertTrue(game.gameOver());
+
+		game = new ConnectFour(new TerminalGraphics(), p1, p2);
+		game.run();
+		assertTrue(game.gameOver());
 	}
 
 }
