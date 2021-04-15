@@ -51,7 +51,10 @@ Pakken GUI - det som trengs for å få grafisk brukergrensesnitt (untatt GuiPlay
 Pakken Terminal - det som trengs for å spille fra terminal (untatt ConsolePlayer)
 
 ### Bruk
-TODO:
+Sipllet kan kjøres på to måter: 
+
+-inf101.sem2.MainTerminal - Kjører spillet via terminalen. 
+-inf101.sem2.MainGUI - Kjører spillet med grafisk brukergrensesnitt. 
 
 
 ## Oppgave 1 - Designanalyse

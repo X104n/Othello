@@ -1,4 +1,4 @@
-package inf101;
+package inf101.sem2;
 
 import java.util.ArrayList;
 

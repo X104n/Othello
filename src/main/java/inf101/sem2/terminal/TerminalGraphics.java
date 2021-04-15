@@ -13,7 +13,5 @@ public class TerminalGraphics implements Graphics {
 	@Override
 	public void display(GameBoard board) {
 		System.out.println(board.toString());
-
 	}
-
 }

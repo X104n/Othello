@@ -1,4 +1,4 @@
-package inf101;
+package inf101.sem2;
 
 import inf101.sem2.GUI.MainMenu;
 

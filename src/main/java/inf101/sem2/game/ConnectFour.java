@@ -39,13 +39,24 @@ public class ConnectFour extends Game {
 		return board.isFull();
 	}
 
-	public Location drop(int col) {
-		Location loc = new Location(0, col);
+	@Override
+	public void makeMove(Location loc) {
+		super.makeMove(drop(loc));
+	}
 
-		while(board.canPlace(loc) && !canPlace(loc)) {
-			loc = loc.getNeighbor(GridDirection.SOUTH);
+	private Location drop(Location loc) {
+		while(board.canPlace(below(loc))) {
+			loc = below(loc);
 		}
 		return loc;
+	}
+	
+	private Location below(Location loc) {
+		return loc.getNeighbor(GridDirection.SOUTH);
+	}
+	
+	public Location drop(int col) {
+		return drop(new Location(0, col));
 	}
 
 	@Override

@@ -31,7 +31,7 @@ public class GameGUI implements ActionListener, Graphics {
 	private JButton backButton; //Button to go back to end the game and go back to main menu
 	private JButton restartButton; //Button to restart the game
 	private JLabel statusMessage; //field for displaying message to user
-	private ClickableGrid clickablePanels; //clickable grid for user input
+	private ClickableGrid board; //clickable grid for user input
 	private Iterable<Player> players;
 	private JFrame frame;
 
@@ -114,8 +114,8 @@ public class GameGUI implements ActionListener, Graphics {
 	}
 
 	public void removeClickablePanels() {
-		if(clickablePanels != null && clickablePanels.getParent() != null) {
-			clickablePanels.getParent().remove(clickablePanels);
+		if(board != null && board.getParent() != null) {
+			board.getParent().remove(board);
 		}
 	}
 
@@ -127,14 +127,14 @@ public class GameGUI implements ActionListener, Graphics {
 	@Override
 	public void display(GameBoard board) {
 		removeClickablePanels();
-		clickablePanels = new ClickableGrid(board, players, getColors());
-		frame.add("Center", clickablePanels);
+		this.board = new ClickableGrid(board, players, getColors());
+		frame.add("Center", this.board);
 		frame.setMinimumSize(new Dimension(100 * board.numColumns(), 100 * board.numRows() + 100));
 		drawGameBoard();
 	}
 
 	public Location getMove() {
-		return clickablePanels.getLastClick();
+		return board.getLastClick();
 	}
 
 	/**
@@ -143,7 +143,7 @@ public class GameGUI implements ActionListener, Graphics {
 	 * @param pieceAt The piece to be drawn
 	 * @return The color that this GUI implementation associates with the provided piece
 	 */
-	protected static List<Color> getColors() {
+	protected List<Color> getColors() {
 		Color[] colors = {Color.BLUE, Color.RED};
 		return Arrays.asList(colors);
 	}
