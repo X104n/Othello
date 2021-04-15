@@ -5,12 +5,20 @@ import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 import static org.junit.jupiter.api.Assertions.fail;
 
+import org.junit.jupiter.api.BeforeEach;
+
+import inf101.GetStarted;
 import inf101.sem2.player.AbstractPlayer;
 import inf101.sem2.player.DumbPlayer;
 import inf101.sem2.player.Player;
 import org.junit.jupiter.api.Test;
 
 class PlayerTest {
+
+	@BeforeEach
+	void testReadConditions() {
+		assertTrue(GetStarted.hasRead);
+	}
 
 	public static void testConstructor(String symbol, String name, Player p) {
 		assertEquals(name, p.toString());

@@ -4,6 +4,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.junit.jupiter.api.Assertions.assertFalse;
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import inf101.GetStarted;
 import inf101.grid.Location;
 import inf101.sem2.player.DumbPlayer;
 import inf101.sem2.player.Player;
@@ -11,6 +12,10 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 class GameBoardTest {
+	@BeforeEach
+	void testReadConditions() {
+		assertTrue(GetStarted.hasRead);
+	}
 
 	GameBoard board;
 	Player p1;

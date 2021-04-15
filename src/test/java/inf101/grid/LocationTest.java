@@ -6,9 +6,17 @@ import static org.junit.jupiter.api.Assertions.assertTrue;
 
 import java.util.HashSet;
 
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
+import inf101.GetStarted;
+
 public class LocationTest {
+	@BeforeEach
+	void testReadConditions() {
+		assertTrue(GetStarted.hasRead);
+	}
+
 	Location loc = new Location(3, 4);
 
 	@Test

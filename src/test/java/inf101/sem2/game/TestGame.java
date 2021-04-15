@@ -2,12 +2,19 @@ package inf101.sem2.game;
 
 import static org.junit.jupiter.api.Assertions.assertTrue;
 
+import org.junit.jupiter.api.BeforeEach;
+
+import inf101.GetStarted;
 import inf101.sem2.player.DumbPlayer;
 import inf101.sem2.player.Player;
 import inf101.sem2.terminal.TerminalGraphics;
 import org.junit.jupiter.api.Test;
 
 class TestGame {
+	@BeforeEach
+	void testReadConditions() {
+		assertTrue(GetStarted.hasRead);
+	}
 
 	@Test
 	void testDumbPlayerCanPlay() {

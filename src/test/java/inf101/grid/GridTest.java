@@ -13,9 +13,18 @@ import inf101.util.IGenerator;
 import inf101.util.generators.GridGenerator;
 import inf101.util.generators.LocationGenerator;
 import inf101.util.generators.StringGenerator;
+
+import org.junit.jupiter.api.BeforeAll;
+import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 
 public class GridTest {
+	
+	@BeforeEach
+	void testReadConditions() {
+		assertTrue(GetStarted.hasRead);
+	}
+	
     private static final int N = 10000;
 
     private final IGenerator<String> strGen = new StringGenerator();
@@ -50,7 +59,7 @@ public class GridTest {
 
     @Test
     public void fillTest1() {
-        assertTrue(GetStarted.hasRead);
+        
         for(int i = 0; i < N / 10; i++) {
             IGrid<String> grid = gridGen.generate();
 
@@ -61,7 +70,6 @@ public class GridTest {
 
     @Test
     public void fillTest2() {
-        assertTrue(GetStarted.hasRead);
         for(int i = 0; i < N / 10; i++) {
             IGrid<String> grid = gridGen.generate();
 
@@ -82,7 +90,6 @@ public class GridTest {
 
     @Test
     public void setGetIndependentTest() {
-        assertTrue(GetStarted.hasRead);
         for(int j = 0; j < 10; j++) {
             IGrid<String> grid = gridGen.generate();
             IGenerator<Location> lGen = new LocationGenerator(grid);
@@ -110,7 +117,6 @@ public class GridTest {
      */
     @Test
     public void setGetTest() {
-        assertTrue(GetStarted.hasRead);
         for(int j = 0; j < 10; j++) {
             IGrid<String> grid = gridGen.generate();
             IGenerator<Location> lGen = new LocationGenerator(grid);
@@ -126,7 +132,6 @@ public class GridTest {
 
     @Test
     public void uniqueLocations() {
-        assertTrue(GetStarted.hasRead);
         for(int j = 0; j < 10; j++) {
             IGrid<String> grid = gridGen.generate();
             ArrayList<Location> found = new ArrayList<>();
