@@ -5,6 +5,8 @@ import inf101.grid.GridDirection;
 import inf101.grid.Location;
 import inf101.sem2.player.Player;
 
+import java.util.List;
+
 public class GameBoard extends Grid<Player> {
 
 	public GameBoard(int rows, int cols) {
@@ -125,5 +127,9 @@ public class GameBoard extends Grid<Player> {
 		GameBoard board = new GameBoard(this.numRows(), this.numColumns());
 		fillCopy(board);
 		return board;
+	}
+
+	public void flipAction(Location loc, Player p){
+		super.set(loc, p);
 	}
 }

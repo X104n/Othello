@@ -64,8 +64,10 @@ public abstract class Game {
 		for(Player p : players) {
 			if(isWinner(p)) {
 				graphics.displayMessage("Player " + p + " has won!");
+				return;
 			}
 		}
+		graphics.displayMessage("It's a tie!");
 
 	}
 

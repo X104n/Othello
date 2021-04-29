@@ -16,6 +16,7 @@ import javax.swing.JPanel;
 
 import inf101.sem2.game.ConnectFour;
 import inf101.sem2.game.Game;
+import inf101.sem2.game.Othello;
 import inf101.sem2.game.TicTacToe;
 import inf101.sem2.player.GameEndedException;
 import inf101.sem2.player.GuiPlayer;
@@ -32,6 +33,7 @@ public class MainMenu implements ActionListener {
 
 	private final JButton playConnectFourButton; //Button to start new 4 in row game
 	private final JButton playTicTacToeButton; //Button to start new TicTacToe game
+	private final JButton playOthello;
 	private final JFrame frame;
 	public Game game;
 	public GameGUI gui;
@@ -49,6 +51,7 @@ public class MainMenu implements ActionListener {
 		//add one button for each game
 		playTicTacToeButton = addButton(buttons, "Tic-Tac-Toe");
 		playConnectFourButton = addButton(buttons, "Connect Four");
+		playOthello = addButton(buttons, "Othello");
 
 		//add buttons to the window
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
@@ -94,6 +97,9 @@ public class MainMenu implements ActionListener {
 		}
 		if(e.getSource() == playTicTacToeButton) {
 			game = new TicTacToe(graphics, players);
+		}
+		if (e.getSource() == playOthello) {
+			game = new Othello(graphics, players);
 		}
 		if(game == null) {
 			System.err.println("Button not recognized, no game created.");
