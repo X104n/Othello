@@ -148,7 +148,7 @@ public class GameGUI implements ActionListener, Graphics {
 	 * @return The color that this GUI implementation associates with the provided piece
 	 */
 	protected List<Color> getColors() {
-		Color[] colors = {Color.BLUE, Color.RED};
+		Color[] colors = {Color.BLACK, Color.GRAY};
 		return Arrays.asList(colors);
 	}
 }
