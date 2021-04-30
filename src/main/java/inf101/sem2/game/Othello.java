@@ -48,7 +48,6 @@ public class Othello extends Game {
     @Override
     public void makeMove(Location loc) {
         if (getPossibleMoves().isEmpty()) {
-            System.out.println("you can not make a move, skipping your turn");
             players.nextPlayer();
             samePlayer = false;
         } else if (!canPlace(loc)) {
@@ -59,7 +58,6 @@ public class Othello extends Game {
             players.nextPlayer();
             samePlayer = false;
         } else {
-            System.out.println(getPossibleMoves());
             samePlayer = true;
         }
 
@@ -67,7 +65,7 @@ public class Othello extends Game {
 
     /**
      * This boolean keeps track of the player making his move.
-     *
+     * <p>
      * The reason for this is because if you click an invalid tile, we need to make sure that the method noMoreMoves
      * doesn't run twice in a row when it still is the same player.
      */
@@ -184,6 +182,7 @@ public class Othello extends Game {
 
     /**
      * Updates the lastMoveSkip boolean and keeps track of when the game should and and if any of tha player cna make their move.
+     *
      * @return returns a boolean if the two last moves where skipped
      */
     private boolean noMoreMoves() {
@@ -218,6 +217,7 @@ public class Othello extends Game {
 
     /**
      * This method checks which of the players wins the game
+     *
      * @param player The player that is getting his discs compeard with all the other players
      * @return returns if the player of the input is the winner or not
      */

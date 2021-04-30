@@ -45,7 +45,6 @@ class OthelloTest {
 
         assertEquals(true, inBounds);
         assertEquals(false, outBounds);
-
     }
 
     @Test
